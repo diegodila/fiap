@@ -1,0 +1,107 @@
+A02-080321
+chamadas de sistema = lib de functions 
+
+
+dispositivos fisicos { 
+    firmware { 
+        SO { 
+            chamada de sistemas { 
+                {compiladores, text editor, command inter}, 
+                    {jogos, declaração do irpf, internet banking}
+
+especificação SUS - Single Unix Specification
+firmware
+doc POSIX
+
+a00-110321
+Conhecer os principais subsistemas de um SO
+
+Descrever os principais subsistemas de um SO
+
+Entender  os  conceitos  envolvidos  no  projeto  de algoritmos para escalonamento da CPU, para gerenciamento de memória, para manipulação de arquivos e para gerenciamento de dispositivos de E/S
+
+Projetar programas com maior qualidade e eficiência quanto à utilização dos recursos de hardware gerenciados pelo SO
+
+o que é um firmware?
+Firmware, um conjunto de programas que já vem de fábrica e estão armazenados na Memória ROM. Mas não pense que o Firmware só está presente em computadores. Ele também está em vários equipamentos eletrônicos como, relógios e pulseiras inteligentes, Smartphones, controles remotos, câmeras digitais e entre outros objetos. A função do Firmware é armazenar todas as informações para a inicialização das rotinas, para que assim, o equipamento funcione corretamente.
+Para simplificar, o Firmware é o programa que oferece vida ao hardware no qual ele está instalado.
+
+o que é device driver?
+o que é POSIX?
+o que é SUS?
+o que é UNIX?
+o que é power-on self-test
+boot loader? 
+como classificamos a chamadas de sistemas?
+como é as cns no Unix e no windows?
+
+
+A03-150321
+command Powershell windows
+get-date -format d
+get-date -format D
+get-date -format t
+get-date -format T
+get-date -format yyyy/MM/dd
+get-help 
+cls -> command DOS
+get-process // processos em execução 
+get-process -name explorer // -name parametro, e o nome no processos
+
+handles -> manipulador 
+NPM PM WS -> memoria
+NPM -> quantidade de memoria real, não paginada 
+PM -> paginada, que já foram executadas, que estão no disco
+WS -> conjunto de trabalho
+CPU -> quantidade de segundos que o processo consumiu
+SI -> idetificação da sessão
+
+get-process |  get-member  | out-host -paging 
+
+get-process -name explorer -module 
+
+$exp = get-process - name explorer // declarando variavel
+$exp.modules -> 
+$exp.thread  -> 
+
+get-services // obter os servicos em exec (listar)
+get-services win*
+get-services -displayname *net*
+get-services -displayname *video*
+get-help get-service 
+get-help get-service -detailed 
+get-help get-service -full
+get-help get-service -examples
+get-command -noum service
+get-command -commandtype cmdlet 
+get-command -verb set 
+get-command -commandtype cmdlet set* //todos comandos do tipo cmdlet
+ipconfig
+ipconfig /all //info completa 
+systeminfo // gera info de maquina 
+syteminfo > C:\temp\SystemInfo.txt
+ipconfig /all >> C:\temp\SystemInfo.txt 
+ping localhost 
+lastexitcode // ultimo cod de saida 
+ping fakehost // perde 
+lastexitcode // 1 error 
+$exp get-member 
+$ping = New-Object -TypeName System.Net.NetworkInformation.Ping 
+$ping.Send("localhost")
+COM
+
+$objWSH = New-Object -COMObject WScript.SHELL
+$objWSH | get-member 
+$objWSH.Popup("NOVA MENSAGEM", $null, "Caixa de diálogo")
+$ie = New-Object -COMObject InternetExplorer.Application
+$ie =
+$ie.NAvigate2("http.
+get-WMIobject -list win32_net // listar relacionado a rede 
+
+get-WMIobject -list win32_disk* // disco
+
+get-WMIobject -list win32_processor* // processador
+
+get-WMIobject -list win32_video* // video
+ 
+
