@@ -1,0 +1,8 @@
+select last_name, department_name
+from employees E join departments D
+on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
+
+
+select E.last_name, D.department_name
+from employees E INNER join departments D
+on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
