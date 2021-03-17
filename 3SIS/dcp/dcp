@@ -1,0 +1,51 @@
+class Myapp extends StatelessWidget {
+// Primeiro método a ser executado
+    @override 
+    Widget build(BuildContext context) {
+    // Criando o Widget do material App e um texto olá 
+    return MaterialApp(
+    home: Card(
+        child: ListTile(
+            leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue,
+            ),
+            title: Text("9999, St Domingues")
+            subtitle: Text("Vancouver, British Columbia, 9999"),
+            trailing: Text("N4"),
+                Icons.arrow_forward_ios,
+                colors: Colors.redAccent,
+           
+// Importando o Material Design
+import 'package:flutter/material.dart';
+
+// Método para executar o aplicativo
+void main() {
+  runApp(MyApp());
+}
+
+// Classe que cria o App
+class MyApp extends StatelessWidget {
+// Primeiro método a ser executado
+  @override
+  Widget build(BuildContext context) {
+    // Criando o Widget do Material App e um Texto Olá
+    return MaterialApp(
+      home: Card(
+        child: ListTile(
+          leading: Icon(
+            Icons.restaurant_menu,
+            color: Colors.blue,
+          ),
+          title: Text("9999, St Domingues"),
+          subtitle: Text("Vancouver, British Columbia, 99999"),
+          trailing:  Icon(
+            Icons.arrow_forward_ios,
+            color: Colors.redAccent,
+          ),
+        ), // Text
+      ), // Card
+    ); // MaterialApp
+  }
+}
+
