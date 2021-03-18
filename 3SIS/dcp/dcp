@@ -48,16 +48,4 @@ class MyApp extends StatelessWidget {
     ); // MaterialApp
   }
 }
-2 indicadores  
-qualys nivel brasileiro (qualitativo)
-fator de impacto (quantitativo)
-
-fator de impacto: o quanto o artigo impactou para a comunidade cientifica, a nota de 2019 é de 1.97 e de 2018 é de 2.22, e fator de impacto é o quantidade de citacoes que a revista recebeu dentro de todos os periodicos dividido pelo numero de artigos publicados (mostrando o prestigio academico), tambem demonstra que o artigo não foi citado em outros artigos de maior relevancia, sendo o artigo 2020
- 
-qualiscaps a tematica do artigo entra em medicina B2, enfermagem B1, ciencias biologicas B3 (considerado bem ruim) ou seja não demonstra confiabilidade, comparado a outros artigos (Existindo a possibilidade de conflito de interresses) revista não tem citações quando comparados a outras da mesma tematica em citações relevantes 
-
-
-
-
-analise critica(normalmente, no artigo publicado não aparece sobre conflito de interresse, normalmente essas informações são restritas aos grupos de pareceristas por fazerem o ajuizamento e a validação do artigo durante o processo de publicação, além do mais tem a questão de atribuições do autores que normalmente não é divulgado no corpo do artigo publicado, normalmente fica restrito aos pareceristas)
 
