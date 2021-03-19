@@ -51,7 +51,7 @@ select E.last_name, D.department_name,
     E.DEPARTMENT_ID FK
 from employees E full join departments D
 on (E.DEPARTMENT_ID=D.DEPARTMENT_ID)
-WHERE DEPARTMENT_NAME = null 
+WHERE DEPARTMENT_NAME = "Executive"
 or e.last_name = 'Grant'
 or d.department_name = 'NOC';
 
