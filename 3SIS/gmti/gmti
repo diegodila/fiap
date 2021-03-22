@@ -1,0 +1,123 @@
+A03-150321
+
+git branch // mostra as branchs 
+git flow -> cria uma structure de gereciamento de fonts 
+cria a feature como tarefa // 
+é um cod especifico (feature) e depois destruo 
+no git flow posso criar bugfix/hotfix
+quem controla tudo é o git flow
+
+git flow init 
+git branch
+git flow feature start criacaocronogramachallenge
+git branch
+git flow feature finish [nome-da-branch]
+git flow release start [nome-da-release-r1.01]
+git branch 
+git flow release finish [nome-da-release] -m 'Release de kickoff do projeto'
+git branch 
+git tag // mostra a release
+git checkout main 
+git branch 
+git push -u origin main 
+git push -u origin develop
+git flow bugfix start correcaocronograma 
+git branch
+git status
+git diff read.me
+git add . 
+git status
+gcmsg 'alterações do read.me com complementação de texto'
+git status
+git flow  bugfix finish correcaocronograma //fecha a bugfix
+exit
+git pull --all // push tudo
+
+-------------------------------------------------
+a04-220321
+
+        // atributo
+        private int resultado = 0;
+ 
+        // método somar
+        public int somar( int n1, int n2 ){
+ 
+            resultado = n1 + n2;
+            return resultado;
+        }
+ 
+        // método subtrair
+        public int subtrair( int n1, int n2 ){
+ 
+            resultado = n1 - n2;
+            return resultado;
+        }        
+ 
+        // método multiplicar
+        public int multiplicar( int n1, int n2 ){
+ 
+            resultado = n1 * n2;
+            return resultado;
+        }
+ 
+        // método dividir
+        public int dividir( int n1, int n2 ){
+ 
+            resultado = n1 / n2;
+            return resultado;
+        }
+
+
+    /**
+    * Teste de somar na Calculadora.
+    */
+   @Test
+   public void testeSomar() {
+       int nro1 = 5;
+       int nro2 = 5;
+       Calculadora calc= new Calculadora();
+       int resultadoEsperado = 10;
+       int resultadoReal= calc.somar(nro1, nro2);
+       assertEquals(resultadoEsperado, resultadoReal);
+   }
+
+new java project -> QA
+src > new > Class > Calculator > sem packages > public
+src > new > JUnit test case (class)> New JUnit 4 test > Name: TestSoma
+
+todo metodo JUnit tem que ter o @Test antes de cada método e o import static org.junit.Assert.*;
+
+@Test
+   public void testeSomar() {
+       int nro1 = 5;
+       int nro2 = 5;
+       Calculadora calc= new Calculadora();
+       int resultadoEsperado = 10;
+       int resultadoReal= calc.somar(nro1, nro2);
+       assertEquals(resultadoEsperado, resultadoReal);
+   }
+
+assertEquals -> mostra o resultado do test
+TestSoma (class) > run as > Junit Test > 2 class rodando
+fazer um test mudando o metodo somar da calculadora 
+
+
+criando outro metodo na classe TestSoma > não esquecer o @Test > colocar outro nome no metodo > TestSomar2 
+
+criando outra classe > src > new > JUnit test case (class) > new Junit test case 4 > name: TestSubtrair
+
+@Test
+   public void testeSubtrair1() {
+       int nro1 = 5;
+       int nro2 = 3;
+       Calculadora calc= new Calculadora();
+       int resultadoEsperado = 2;
+       int resultadoReal= calc.subtrair(nro1, nro2);
+       assertEquals(resultadoEsperado, resultadoReal);
+   }
+
+assertEqualss pode ser usado com qualquer valor de retorno
+
+testSuite é empacotar as classes de testes 
+src > other > Junit test suite > Name: PacoteCalculadora > (mostra as JUnits que voce quer colocar no pacote > Select all >
+run > pacote > dryll down

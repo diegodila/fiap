@@ -74,4 +74,3 @@ externo é efetivo para relações opcionais
 select E.last_name, D.department_name
 from employees E INNER join departments D
 on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
-
