@@ -34,7 +34,7 @@ exit
 git pull --all // push tudo
 
 -------------------------------------------------
-a04-220321
+a01-220321
 
         // atributo
         private int resultado = 0;
@@ -121,3 +121,46 @@ assertEqualss pode ser usado com qualquer valor de retorno
 testSuite é empacotar as classes de testes 
 src > other > Junit test suite > Name: PacoteCalculadora > (mostra as JUnits que voce quer colocar no pacote > Select all >
 run > pacote > dryll down
+
+--------------------------------------------------------
+a02-220321  JUnit + Git 
+    
+DUAS FORMAS POPULARES DE USAR JUNIT:
+    
+AULA PASSADA...
+    
+1o CRIAR UMA CLASSE JUNIT PARA CADA MÉTODO DA CLASSE QUE VOCÊ QUER TESTAR E DENTRO DA JUNIT, CRIAR VÁRIOS MÉTODOS TESTANDO CADA UM, UMA COMBINAÇÃO DE INPUTS/OUTPUTS
+    
+2o CRIAR JUNIT TEST SUITE E JUNTAR TODAS AS JUNIT TEST CASES PARA UMA MESMA CLASSE DE OBJETOS FONTE
+    
+NESTA AULA...
+    
+1o CRIAR UMA JUNIT TEST CASE ÚNICA PARA A CLASSE A SER TESTADA. DENTRO DELA, CRIAR TODOS OS MÉTODOS DE TESTES COM TODAS COMBINAÇÕES DE INPUT/OUTPUT
+
+
+public class Boasvindas{
+   private String menssagem;
+   //Construtor de Objeto na Classe
+   public Boasvindas(String mens){
+      this.menssagem = mens; 
+   }
+   // Exibição da mensagem
+   public String exibirMenssagem(){
+      System.out.println(this.menssagem);
+      return this.menssagem;
+   }   
+   // Exibição da parte fixa da mensagem
+   public String completarMenssagem(){
+        String compmens;
+        compmens = "Ola! Seja bem vindo a sua calculadora pessoal";
+        System.out.println(compmens);
+        return compmens;
+   }
+}
+
+
+A04-220321
+
+Cobit
+metas e controles 
+

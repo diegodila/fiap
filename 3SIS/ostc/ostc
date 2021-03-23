@@ -103,5 +103,44 @@ get-WMIobject -list win32_disk* // disco
 get-WMIobject -list win32_processor* // processador
 
 get-WMIobject -list win32_video* // video
- 
+
+
+A04-220321 BIOS
+
+power-on self-test
+boot loader
+interrupções de bios
+
+bios > bootloader >
+modo kernel > todas as tarefas ou todas instruções
+interrupções de bios
+
+debug > interagir com algumas partes do hardware 
+remover o utilitario do sistema operacional, maquina virtual xp
+-R (mostra o conteudo do registradores do processador)
+processadores sempre terminam com 86 
+80/86 ibm processador 
+registradores -> 8 registradores de uso geral
+
+CS:IP -> area de codigo (programa)
+
+DS:SI -> area de dados (programa)
+ES:DI
+FS, GS
+
+SS:SP -> area de pilha (programa) 
+
+MOV AH,2
+INT 1A 
+INT 3
+
+G=100
+
+A 200 
+
+MOV AH,0
+INT 16 
+INT 3
+
+-G=200
 
