@@ -28,5 +28,5 @@ onde muda a porta do tomcat é no file server
 
 file > new > dynamic web > Project name: AppTest > default location
 
-new server (aba) > apache > next > tomcat installation directory: path/name/tomcat/(raiz) > JRE default: jdk11 or jdk 8 > next > add name: appTest > finish 
+new server (aba) > apache > next > tomcat installation directory: path/name/tomcat/(raiz) > JRE default: jdk11 or jdk 8 > next > add name: appTest > finish
  
