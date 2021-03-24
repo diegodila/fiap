@@ -74,3 +74,27 @@ externo é efetivo para relações opcionais
 select E.last_name, D.department_name
 from employees E INNER join departments D
 on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
+
+--------------------------------------------------------
+A04-230321
+
+union all (uniao total mais intersecção)
+não existe minus no sql server (except)
+
+select employee_id,last_name,job_id
+from employees
+where department_id = (select department_id
+from departments
+where department_name = 'Executive');
+
+select employee_id,last_name,job_id
+from employees e join departments d
+on (d.department_id=e.department_id)
+where d.department_name = 'Executive';
+
+select employee_id,last_name,job_id
+from employees
+where department_id=90;
+
+
+
