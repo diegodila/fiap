@@ -29,4 +29,54 @@ onde muda a porta do tomcat é no file server
 file > new > dynamic web > Project name: AppTest > default location
 
 new server (aba) > apache > next > tomcat installation directory: path/name/tomcat/(raiz) > JRE default: jdk11 or jdk 8 > next > add name: appTest > finish
- 
+
+-----------------------------------------------------
+A02.1 250321
+
+src > package:br.com.fiap > new class: OiMundoServlet
+
+@WebServlet() > faz o import do javax 
+
+> @WebServlet(urlPatterns = "/oi")
+
+> class OiMundoServlet extends HttpServlet {
+
+>crtl espaco > service > @override
+
+> PrintWriter out = resp.getWriter();
+
+> out.println("<html>");
+  out.println("<body>");
+  out.println("Hello world,");
+  out.println("<body>");
+  out.println("<html>");
+
+----------------------------------------------------
+A03.1
+
+file > new > maven project > create a simple  project (skip archetype.. > next >group id: br.com.fiap > artifact: spring-mvc > version: snapshot > packaging: jar > name: spring-mvc >
+
+pom é onde config as dependencias
+resources é onde ficam os htmls e javascripts
+
+<build>
+<sourceDirectory>src/main/java</sourceDirectory>
+
+  <plugins>
+  <plugin>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <version>3.8.1</version>
+  <configuration>
+  <source>11.0</source>
+  <target>11.0</target>
+  </configuration>
+  </plugin>
+  
+  <plugin>
+  <artifactId>maven-war-plugin</artifactId>
+                                  <version>3.3.1</version>
+     <configuration>             <warSourceDirectory>src/main/webapp</warSourceDirectory>
+     </configuration>
+  </plugin>
+  </plugins>
+</build>
