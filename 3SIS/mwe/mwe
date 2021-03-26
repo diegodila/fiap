@@ -80,3 +80,49 @@ resources é onde ficam os htmls e javascripts
   </plugin>
   </plugins>
 </build>
+
+abaixo do tag description or name
+
+maven > update project >
+
+criar folder WEB-INF dentro de webapp 
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  id="WebApp_ID" version="3.1">
+  <display-name>spring-mvc</display-name>
+
+  <welcome-file-list>
+  <welcome-file></welcome-file>
+  </welcome-file-list>
+</web-app> 
+
+lembrar de identar 
+
+webapp > html file > name:ola.html
+
+adicionar ao pom.xml
+
+<properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <spring.version>5.1.5.RELEASE</spring.version>
+</properties>
+
+[3/18 8:35 PM] Francisco Aurizelio de Sousa
+    
+<dependencies>
+  <!-- DEPENDÊNCIAS DO SPRING -->
+  <dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-core</artifactId>
+  <version>${​​​​​spring.version}​​​​​</version>
+  </dependency>
+</dependencies>
+
+lembrar dos settings
+
+pom onde configuramos as dependencias
+
+
+
