@@ -1,3 +1,6 @@
+logs
+/opt/oracle/cfgtoollogs/dbca/XE/XE.log
+---------------------------------------------------
 select last_name, department_name
 from employees E join departments D
 on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
@@ -75,6 +78,12 @@ select E.last_name, D.department_name
 from employees E INNER join departments D
 on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
 
+em colunas ambiguas temos que qualificar a coluna
+nomedatabela.nomedacoluna 
+no entanto a oracle recomenda que voce qualifique com apelido, nome curto 
+
+e.department_id 
+inner join
 --------------------------------------------------------
 A04-230321
 
