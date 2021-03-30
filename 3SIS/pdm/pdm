@@ -215,7 +215,15 @@ quando temos um relacionamento e uma das entidades não precisa de outra pra exi
 a chave estrangeira sendo opcional
 junção externa é o não relacionado
 junção externa integral
-o comando externo de juncao é efetivo para relações opcionais em ambas direções 
+o comando externo de juncao é efetivo para relações opcionais em ambas direções
+
+
+union all, conceito de bd relcional
+table  
+a quantidade colunas da primeira consulta, tem que ser igual a segunda
+tem que ter o mesmo tipo de dado as colunas
+voce tem colocar o nome ou apelido na primeira query
+
 
 -----------------------------------------------
 
