@@ -130,10 +130,66 @@ no entanto a oracle recomenda que voce qualifique com apelido, nome curto
 e.department_id 
 inner join
 
-
 select last_name manager, last_name worker 
 from employees a join employees b
 on (a.manager_id=b.manager_id)
+
+--------------------------------------------------------
+A03-300321 SUBquery
+
+subquery pode ser usado em clausula from 
+query interna e subquery  é a mesma coisa
+query principal e externa é a mesma coisa
+converte em join é boa pratica
+tunning sql
+operadores condicionais em sql não tratam listas
+o tipo de dado dentro da subquery é importante no select
+a subquery tem que estar entre parenteses
+
+SELECT last_name, job_id, salary
+FROM   employees
+WHERE  salary = 
+                (SELECT MIN(salary)
+                 FROM   employees);
+
+o operador espera um dado ele não trata lista
+--função MIN() ou MAX() retorna apenas um resultado, onde o operador = aceita apenas um retorno
+
+consistencia de grupo voce faz com having
+--Where é para coluna, HAVING é para função de grupo
+
+SELECT employee_id, last_name
+FROM   employees
+WHERE  salary =
+                (SELECT   MIN(salary)
+                 FROM     employees
+                 GROUP BY department_id);
+
+temos que usar operadores de lista
+
+select last_name
+from employees
+where department_id = 20
+or department_id = 50
+or department_id = 70 
+
+o in faz tudo isso internamente
+
+select last_name 
+from employees
+where department_id in (20,30,80,90);
+
+usando o in 
+se voce tem um nulo na lista sua query principal é anulada
+
+select last_name 
+from employees
+where department_id=&v_dept_id; --sqldeveloper
+
+select last_name 
+from employees
+where department_id=?; --datagrip
+
 --------------------------------------------------------
 A04-230321
 
