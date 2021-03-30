@@ -10,6 +10,10 @@ from employees E INNER join departments D
 on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
 
 select E.last_name, D.department_name
+from employees E INNER join departments D
+on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
+
+select E.last_name, D.department_name
 from employees E LEFT OUTER join departments D
 on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
 
@@ -67,6 +71,45 @@ WHERE DEPARTMENT_NAME = null
 or e.last_name = 'Grant'
 or d.department_name = 'NOC';
 
+select E.last_name, D.department_name,
+    D.DEPARTMENT_ID PK,
+    E.DEPARTMENT_ID FK
+from employees E full join departments D
+on (E.DEPARTMENT_ID=D.DEPARTMENT_ID)
+WHERE DEPARTMENT_NAME = null 
+or e.last_name = 'Grant'
+or d.department_name = 'NOC';
+
+select E.last_name, D.department_name,
+    L.street_address
+from employees E join departments D
+on (D.department_id=E.department_id)
+join locations l
+on (l.location_id=d.location_id);
+
+select E.last_name, D.department_name,
+    L.street_address,
+    c.country_name
+from employees E join departments D
+on (d.department_id=e.department_id)
+join locations l
+on (l.location_id=d.location_id)
+join countries c
+on (c.country_id=l.country_id);
+
+select E.last_name, D.department_name,
+    L.street_address,
+    c.country_name,
+    r.region_name
+from employees E join departments D
+on (d.department_id=e.department_id)
+join locations l
+on (l.location_id=d.location_id)
+join countries c
+on (c.country_id=l.country_id)
+join regions r
+on (r.region_id=c.region_id);
+
 o comando externo de junção (JOIN), 
 em relações opcionais de direções 
 junção externa integral
@@ -74,9 +117,11 @@ relações opcionais em ambas direções OUTER
 relações que devem não são opcionais são o INNER
 externo é efetivo para relações opcionais
 
-select E.last_name, D.department_name
-from employees E INNER join departments D
-on (E.DEPARTMENT_ID=D.DEPARTMENT_ID);
+quando temos um relacionamento e uma das entidades não precisa de outra pra existir, ele é a entidade pai 
+a chave estrangeira sendo opcional
+junção externa é o não relacionado
+junção externa integral
+o comando externo de juncao é efetivo para relações opcionais em ambas direções
 
 em colunas ambiguas temos que qualificar a coluna
 nomedatabela.nomedacoluna 
@@ -84,6 +129,11 @@ no entanto a oracle recomenda que voce qualifique com apelido, nome curto
 
 e.department_id 
 inner join
+
+
+select last_name manager, last_name worker 
+from employees a join employees b
+on (a.manager_id=b.manager_id)
 --------------------------------------------------------
 A04-230321
 
@@ -105,5 +155,12 @@ select employee_id,last_name,job_id
 from employees
 where department_id=90;
 
+quando temos um relacionamento e uma das entidades não precisa de outra pra existir, ele é a entidade pai 
+a chave estrangeira sendo opcional
+junção externa é o não relacionado
+junção externa integral
+o comando externo de juncao é efetivo para relações opcionais em ambas direções 
+
+-----------------------------------------------
 
 
