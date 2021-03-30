@@ -218,13 +218,47 @@ junção externa integral
 o comando externo de juncao é efetivo para relações opcionais em ambas direções
 
 
-union all, conceito de bd relcional
+union all, conceito de bd relacional
 table  
 a quantidade colunas da primeira consulta, tem que ser igual a segunda
 tem que ter o mesmo tipo de dado as colunas
 voce tem colocar o nome ou apelido na primeira query
 
+----------------------------------------------------
+A05-300321
 
------------------------------------------------
+visao é materialização logica
+visao simples ou complexa
+visao simples so tem uma tabela
+não contem funções 
+tabela temporaria é por sessao ou transação
+nao podemos fazer dml 
+tabela temporaria é que tem o dado temporario
 
+subquery é qualquer instrucao de selecao valida 
+o que tiver de query cabe numa visao
+
+describe empvu80;
+select * from empvu80;
+update empvu80
+set salary=15000
+where employee_id=145;
+
+select salary
+from employees
+where employee_id=145;
+
+delete from empvu80
+where employee_id=145;
+
+delete from employees
+where employee_id=145;
+
+insert into empvu80
+values (1000,'Zezao do caminhao',5000);
+
+create or replace view
+
+
+----------------------------------------------------
 
