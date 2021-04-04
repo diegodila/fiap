@@ -224,7 +224,29 @@ a quantidade colunas da primeira consulta, tem que ser igual a segunda
 tem que ter o mesmo tipo de dado as colunas
 voce tem colocar o nome ou apelido na primeira query
 union all é a union + intersect
+renomear o cabeçalho do coluna tem que ser na primeira query
+quando fazemos um seleção de uma coluna inexistente, temos que fazer uma solução de contorno ex: criamos uma pseudo coluna to_number(null)--pseudo from employes, coluna_existente from job_history
 
+quando convertamos uma coluna existente para o display do sem salario, que é um char (solução de contorno)
+
+SELECT employee_id, job_id,to_char(salary)
+FROM   employees
+UNION
+SELECT employee_id, job_id, 'Sem salário'
+FROM   job_history;
+
+COLUMN a_dummy NOPRINT
+SELECT 'sing' AS "My dream", 3 a_dummy
+FROM dual
+UNION
+SELECT 'I''d like to teach', 1 a_dummy
+FROM dual
+UNION 
+SELECT 'the world to', 2 a_dummy
+FROM dual
+ORDER BY a_dummy;
+
+solução de contorno 
 ----------------------------------------------------
 A05-300321
 
