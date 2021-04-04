@@ -256,6 +256,8 @@ solução de contorno
 ----------------------------------------------------
 A05-300321
 
+visao é representação logica da tabela
+
 visao é materialização logica
 visao simples ou complexa
 visao simples so tem uma tabela
@@ -287,6 +289,52 @@ insert into empvu80
 values (1000,'Zezao do caminhao',5000);
 
 create or replace view
+
+sintaxe de view
+
+o dml é feito usando a visao porem ele é feito na tabela
+a visao reflete as consultas que foram criadas nela, alterando a tabela 
+
+delete from empvu80
+where employee_id=145;
+
+temos um constraint da tabela, que apresenta um erro quando queremos deletar o funcionario employee_id 145 
+ele é chefe de um departamento
+a visao se refere a uma tabela
+a visao tem que manipular todas as colunas obrigatorias para fazer insert
+desde que voce tenha todas as colunas obrigatorias
+se usamos expressão é obrigatorio apelidar a coluna
+a coluna expressão tem que conter um apelido
+
+não conseguimos fazer update em expressao
+
+update salvu50
+set ann_salary=50000;
+
+virtual column not allowed here
+podemos colocar os apelidos das colunas no cabeçalho da visao
+
+CREATE OR REPLACE VIEW empvu80
+  (id_number, name, sal, department_id)
+AS SELECT  employee_id, first_name || ' ' 
+           || last_name, salary, department_id
+   FROM    employees
+   WHERE   department_id = 80;
+
+
+or replace mantem os privilegios da visao 
+dropando nao mantem os privilegios
+podemos dar um grant de select para todos manipular a visao 
+
+grant é comando data control language
+
+grant select on empvu80 to rm80263; --estou dando permissões
+
+drop view empvu80; --perdemos todos os privilegios
+
+quando dropamos, é create novo 
+na maioria da oracle database o replace é para manter privilegios
+select * from pf0645.empvu80;
 
 
 ----------------------------------------------------
