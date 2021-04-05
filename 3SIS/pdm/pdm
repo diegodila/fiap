@@ -326,6 +326,8 @@ or replace mantem os privilegios da visao
 dropando nao mantem os privilegios
 podemos dar um grant de select para todos manipular a visao 
 
+select * from pf0645.empvu80;
+
 grant é comando data control language
 
 grant select on empvu80 to rm80263; --estou dando permissões
@@ -334,8 +336,41 @@ drop view empvu80; --perdemos todos os privilegios
 
 quando dropamos, é create novo 
 na maioria da oracle database o replace é para manter privilegios
-select * from pf0645.empvu80;
 
+podemos entrar com umas constraint de visao 
+restringi apenas a leitura;
+
+CREATE OR REPLACE VIEW empvu10
+    (employee_number, employee_name, job_title)
+AS SELECT	employee_id, last_name, job_id
+   FROM     employees
+   WHERE    department_id = 10
+   WITH READ ONLY ;
+
+aqui podemos manipular um funcionario onde a visão não enxerga, como o department_id fora do 20
+
+CREATE OR REPLACE VIEW empvu20
+AS SELECT	*
+   FROM     employees
+   WHERE    department_id = 20;
+
+select * from empvu20;
+
+rollback;
+
+update empvu20
+set department_id=10
+where employee_id=201;
+
+criamos uma constraint que só manipula o departamento
+onde o where condition manda, so podemos deixar o funcionario dentro do dominio 
+nao podemos permitir que a visao manipule dados que ela não exibe, CHECK OPTION é uma restrição, garante que a visao não manipule dados que ela não exibe
+
+CREATE OR REPLACE VIEW empvu20
+AS SELECT	*
+   FROM     employees
+   WHERE    department_id = 20
+   WITH CHECK OPTION CONSTRAINT empvu20_ck;
 
 ----------------------------------------------------
 
