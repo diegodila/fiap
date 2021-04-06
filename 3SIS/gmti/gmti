@@ -167,3 +167,42 @@ metas e controles
 ------------------------------------------------------
 A05-050421
 
+gestao de desempenho 
+inspecionar é o primeiro passo
+controle de qualidade
+definir indicadores representativos 
+depois coletar os dados 
+inspeção - anot fontes liberados sem erro, por
+
+ programador.
+
+anotação dos valores inspecionados
+
+sigma é estatistica do desvio padrão 
+
+
+a reta de cima do sigma é limite sup de tolerancia
+a reta de baixo do sigma é o limite inf de tolerancia
+
+controle de qualidade -> 
+
+tomar cuidado com testes e produtividade lá em cima
+do limite superior de tolerancia, 
+
+quando a performance individual muda, devemos recalcular o sigma
+
+Passos do controle estatístico de processos, após coletadas as métricas na inspeção:
+plotar o grafico 
+primeiro:
+
+Calculo média e limites de tolerância e registro novas observações para ver se estão dentro dos limites históricos de performance da equipe:
+
+Caso ocorram desvios, eles precisam ser estudados e caso o comportamento tenha se modificado definitivamente para cima ou para baixo dos limites, deve-se ajustar esses limites de controle:
+
+proximo passo: garantia da qualidade
+
+grafico de espinha de peixe ou graficode chicawa
+
+Com base no gráfico de controle, fazemos análises de causa de desvios para promover a Garantia da qualidade
+
+
