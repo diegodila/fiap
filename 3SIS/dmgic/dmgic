@@ -14,6 +14,31 @@ resources - contem todos os arquivos estaticos do app
 
 views - classe base de todos os componentes de interface
 
+class view 
+widgets extendem da classe view
+layout > activity_main.xml > podemos entrar na class e crtl b
+class view base de todos os componentes de interface de usuario android 
+ele fica todos os eventos, voce consegue tratar os eventos
+o retangulo defini a dimensao das views
+temos tres formas de definir o tamanho de uma view
+larguraxaltura=wrap_content
+quando aumentamos o texto do text, ele expande pra tomar conta de todo conteudo do usuario = wrap_content
+
+contrainstlayout é uma view group
+e temos uma view aninhada
+o match_parent ele pega a exatamente a largura ao parent que ele está relacionado
+ele defini a largura ao altura de acordo com o elemnto pai dele = match_parent 
+
+o frameLayout é usado para subir um popup, ou quando sobe uma caixa de texto
+ele sobreescreve 
+
+o linearLayout -> definir a orientação, vertical ou horizontal de forma linear
+se mudamos para horizontal ele cria colunas ao lado 
+
+o contraintLayout -> usado para criar layouts um pouco mais complexos
+
+o constaint layout é mais perfomatico 
+
 
 --------------------------------------------------------
 A03-160321
