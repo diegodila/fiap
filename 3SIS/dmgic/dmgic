@@ -1,3 +1,21 @@
+A02-060421
+activity é uma classe base do android
+resources(layout, imagens) é a parte estatica do android
+manifesto - é arquivo que tem os detalhes do aplicação necessarios paro o S.O
+gradle é scripts de build
+
+os testes referentes a platforma fica na androidTest
+a pasta java é onde encontramos nosso codigo
+
+values - 
+gradlew - é exec 
+
+resources - contem todos os arquivos estaticos do app
+
+views - classe base de todos os componentes de interface
+
+
+--------------------------------------------------------
 A03-160321
 
 chain
@@ -9,7 +27,7 @@ chain
 guideline 
 databind
 
--------------------------------------------------
+--------------------------------------------------------
 A04-230321
 
 
