@@ -12,12 +12,34 @@ situações em que são geradas broadcast, protocolos de comunicação. alcança
 entao todos os eq da rede estão no mesmo dominio de broadcast
 pode causar lentidão no sistema
 
-
-pkg ind para broadcast
-
 ------------------------------------------------------
+A02-070421
+o que é um gateway -> o endereço, a interface que conecta a rede local, com outra rede 
+gateway -> conecta a rede da casa com a internet
+podemos ter mais de uma rede configurada
+cada rede tem um gateway, que é a interface com a outra rede
+ele fica em um dispositivo de camada 3
+o gateway esta config no dispositivo de camada 3 o roteador
+cada interface do roteador é gateway
+cada interface do roteador marca uma rede
 
 
+podemos dividir redes. e transformar em redes virtuais (VLAN)
+
+200 é endereço classe c 
+a mascara padrão da classe c é 255.255.255.0
+
+end rede ->200.200.200.0
+masc->255.255.255.0
+
+pc0 -> endereço ipv4 ->   200.200.200.1
+mask -> 255.255.255.0
+end gateway -> precisamos configurar a porta do roteador-> o endereço ip da interface do roteador que ele está conectado
+roteador -> end ip -> 200.200.200.254
+roteador mask -> 255.255.255.0
+pc0 end gateway -> endereço que foi definido na interface do roteador 200.200.200.254
+
+zsh > ipconfig > end gateway > conectar com o id ip > aparece a interface do roteador, o gateway
 ------------------------------------------------------
 
 ------------------------------------------------------
