@@ -1,3 +1,57 @@
-a04-240321
+A01-070421
+
+toda a porta do roteador marca o inicio e o fim da rede é o gateway
+diferença entre roteador e modem 
+modem = modulador, quando preciso fazer a transformação de um tipo de sinal, disppositivo de camada fisica, converte um tipo de sinal, ex: transf sinal digital em analogico
+quando chega fibra optica, nao temos o modem. temos o disppositivo que converte luz, para inpulso eletrico
+o roteador é um dispositivo de camada 3, ele é le id ip, roteador recebe pkgs
+
+o que é uma broadcast em uma rede -> é quando em uma rede local é encaminhado um pkgs de dados e endereçados para todos equipamentos da rede, ele alcança interface de rede local, rede wifi, cabeada 
+
+situações em que são geradas broadcast, protocolos de comunicação. alcançando todos os equipamentos da rede do pc em si, parando no gateway
+entao todos os eq da rede estão no mesmo dominio de broadcast
+pode causar lentidão no sistema
 
 
+pkg ind para broadcast
+
+------------------------------------------------------
+
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
+
+------------------------------------------------------
