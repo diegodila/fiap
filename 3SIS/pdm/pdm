@@ -373,4 +373,35 @@ AS SELECT	*
    WITH CHECK OPTION CONSTRAINT empvu20_ck;
 
 ----------------------------------------------------
+A06-060421 Indices - Sequencia
 
+select table_name, index_name
+from user_indexes
+where table_name = 'SIS3_1'
+
+truncate table SIS3_1; -- esvaziar a tabela
+
+select employee_id, last_name
+from employees
+where employee_id=170;
+
+procuramos indexar as colunas na clausula where
+
+select employee_id, last_name
+from employees
+where last_name='Pataballa';
+
+create index emp_ln_idx
+on employees(last_name);
+
+----------------------------------------------------
+A07
+----------------------------------------------------
+A08
+----------------------------------------------------
+A09
+----------------------------------------------------
+A10
+----------------------------------------------------
+A11
+----------------------------------------------------
