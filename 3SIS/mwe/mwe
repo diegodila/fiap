@@ -30,7 +30,7 @@ file > new > dynamic web > Project name: AppTest > default location
 
 new server (aba) > apache > next > tomcat installation directory: path/name/tomcat/(raiz) > JRE default: jdk11 or jdk 8 > next > add name: appTest > finish
 
------------------------------------------------------
+------------------------------------------------------
 A02.1 250321
 
 src > package:br.com.fiap > new class: OiMundoServlet
@@ -51,7 +51,7 @@ src > package:br.com.fiap > new class: OiMundoServlet
   out.println("<body>");
   out.println("<html>");
 
-----------------------------------------------------
+------------------------------------------------------
 A03.1
 
 file > new > maven project > create a simple  project (skip archetype.. > next >group id: br.com.fiap > artifact: spring-mvc > version: snapshot > packaging: jar > name: spring-mvc >
@@ -109,8 +109,7 @@ adicionar ao pom.xml
   <spring.version>5.1.5.RELEASE</spring.version>
 </properties>
 
-[3/18 8:35 PM] Francisco Aurizelio de Sousa
-    
+
 <dependencies>
   <!-- DEPENDÊNCIAS DO SPRING -->
   <dependency>
@@ -124,5 +123,76 @@ lembrar dos settings
 
 pom onde configuramos as dependencias
 
+------------------------------------------------------
+A05
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Cadastro Convidados</title>
+<link th:href="@{​​​​​/webjars/bootstrap/css/bootstrap.min.css}​​​​​"
+rel="stylesheet" />
+<link th:href="@{​​​​​/webjars/bootstrap/css/bootstrap-theme.min.css}​​​​​"
+rel="stylesheet" />
+</head>
+
+<body>
+<div class="panel panel-default" style="margin: 10px">
+<div class="panel-heading">
+<h1 class="panel-title">Lista de convidados</h1>
+</div>
+<div class="panel-body">
+<form class="form-inline" method="POST" th:object="${​​​​​convidado}​​​​​" th:action="@{​​​​​/convidados}​​​​​" style="margin: 20px 0">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Nome" th:field="*{​​​​​nome}​​​​​" />
+<input type="text" class="form-control" placeholder="E-mail" th:field="*{​​​​​email}​​​​​" />
+<input type="text" class="form-control" placeholder="Acompanhantes" th:field="*{​​​​​acompanhante}​​​​​"/>
+<button type="submit" class="btn btn-primary">Adicionar</button>
+</div>
+</form>
+<table class="table">
+<thead>
+<tr>
+<th>Nome</th>
+<th>E-mail</th>
+<th>Acompanhantes</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="convidado : ${​​​​​convidados}​​​​​">
+<td th:text="${​​​​​convidado.nome}​​​​​"></td>
+<td th:text="${​​​​​convidado.email}​​​​​"></td>
+<td th:text="${​​​​​convidado.acompanhante}​​​​​"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<script th:src="@{​​​​​/webjars/jquery/jquery.min.js}​​​​​"></script>
+<script th:src="@{​​​​​/webjars/bootstrap/js/bootstrap.min.js}​​​​​"></script>
+</body>
+</html>
 
 
+------------------------------------------------------
+A
+------------------------------------------------------
+A 
+------------------------------------------------------
+A 
+------------------------------------------------------
+A 
+------------------------------------------------------
+A 
+------------------------------------------------------
+A 
+------------------------------------------------------
+A 
+------------------------------------------------------
+A 
+------------------------------------------------------
+A 
+------------------------------------------------------
