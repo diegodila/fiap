@@ -1,3 +1,5 @@
+comandos > route == gateway, ifconfig == ipv4 
+
 A01-070421
 
 toda a porta do roteador marca o inicio e o fim da rede é o gateway
@@ -40,6 +42,73 @@ roteador mask -> 255.255.255.0
 pc0 end gateway -> endereço que foi definido na interface do roteador 200.200.200.254
 
 zsh > ipconfig > end gateway > conectar com o id ip > aparece a interface do roteador, o gateway
+
+pc1 > ipv4 - 200.200.200.100 > mask - 255.255.255.0 > gateway - 200.200.200.254
+
+quando temos equipamentos da mesma rede eles precisam ficar no mesmo endereço de gateway
+podemos usar no gateway qualquer end ip da sua rede 
+boa pratica é usar o gateway o primeiro ou o ult endereço ip valido da rede
+
+config Lan2 
+
+router > config > gigabitEthernet 0/2  > ipv4 > 200.200.200.2 (nao da certo) >
+
+podemos quebrar em subredes, mudamos a mask padrao 255.255.255.128
+
+1a sub rede:
+de: 200.200.200.0
+até 200.200.200.127
+mask: 255.255.255.128
+
+2a sub rede:
+de 200.200.200.128
+ate 200.200.200.255
+mask: 255.255.255.128
+
+10000000 = 128 - 2 redes
+11000000 = 192 - 4 redes
+11100000 = 224 - 8 redes
+11110000 = 240 - 16 redes 
+11111000 = 248 - 32 redes 
+11111100 = 252 - 64 redes 
+11111110 = 254 - 128 redes 
+11111111 = 255 - 
+
+então temos que alterar a mascara da lan1 em que configuramos com uma mask com final 0 e tambem o end ipv4 do router, em o endereço ip esta na faixa da lan2 
+
+router > config > gigabitEthernet0 > ipv4 > 200.200.200.126 > mask > 255.255.255.128
+
+lan1
+
+pc1 > mask 255.255.255.128 > gateway 200.200.200.126
+pc2 > mask 255.255.255.128 > gateway 200.200.200.126
+
+lan2
+
+router > config > gigabitEthernet2 > ipv4 > 200.200.200.254 > mask > 255.255.255.128
+
+laptop0 > ipv4 200.200.200.129 > gateway 200.200.200.254 > mask - 255.255.255.128 
+
+laptop1 > ipv4 200.200.200.130 > gateway 200.200.200.254 > mask - 255.255.255.128
+
+o roteador fornece gateway para as redes locais, o endereço de gateway é o endereço ip que esta salvo na interface do roteador
+ele fornece a direção para se conectar com outra rede
+todos os equipamentos em uma rede precisam saber qual é o seu gateway
+gateway é a interface do roteador a qual eu me conecto 
+
+cada interface do roteador é no minimo um gateway
+cada gateway precisar estar em endereço de rede exclusivo daquela rede, ex lan1 e lan2. Podemos quebrar as redes usando uma mascara
+
+nessa aula usamos endereço ip publico, mas poderiamos usar o ip privado
+
+o switch tem um repetidor dentro dele 
+o switch ele é inteligente, consegue ler endereço mac 
+todo dispositivo intermediario tem embtido um repetidor
+
+cada rede tem seu proprio dominio de broadcast
+4 redes, 4 proprio end de broadcast
+
+
 ------------------------------------------------------
 
 ------------------------------------------------------
