@@ -143,11 +143,83 @@ INT 16
 INT 3
 
 -G=200
--------------------------------------------------------
+------------------------------------------------------
 A05-050421
 
 fifo- primeiro a entrar e primeiro a sair 
 
+------------------------------------------------------
+APROVA
+
+Conceitos Básicos sobre Sistemas Operacionais
+Processos
+Arquivos
+Chamadas de Sistema
+Interpretador de comandos
+
+Chamadas de Sistema
+chamada de sistema (system calls) é utilizada em sistemas UNIX
+Em outros sistemas, o mesmo conceito é apresentado com diferentes nomes: como serviços de sistema (system services) no OpenVMS e interface de programação de aplicação (API – Application Programming Interface) no Windows
+Desta forma, um programa de aplicação desenvolvido utilizando as chamadas de sistema de um determinado sistema operacional não pode ser portado diretamente para outro sistema operacional
+ser divididas em cinco categorias principais: controle de processo, gerenciamento de arquivo, gerenciamento de dispositivo, manutenção de informação e comunicações
+
+
+
+
+
+1) O que é sistema operacional? Qual a sua principal função? Quais são as duas formas de se ver um sistema operacional? 
+
+uma camada de software sobre o hardware para gerenciar todos os componentes do sistema, apresentando-o ao usuário como uma interface simples de entender e de programa
+A principal função do sistema operacional é esconder do programador a complexidade do hardware, fornecendo para este um conjunto de instruções mais convenientes para o desenvolvimento de seu trabalho. Máquina virtual: É uma visão de cima para baixo na qual o sistema operacional é visto como uma extensão do hardware que fornece uma interface para as aplicações. Gerente de recursos: É uma visão de baixo para cima na qual o sistema operacional é visto como um controlador dos recursos do sistema.
+
+2) O que são chamadas de sistema? Qual a importância das chamadas de sistema para a segurança do sistema computacional? Como as chamadas de sistema são utilizadas por um programa de aplicação?
+
+as chamadas de sistema podem ser entendidas como uma porta de entrada para o acesso ao núcleo do sistema operacional e aos seus serviços. Sempre que um programa de aplicação necessitar de algum serviço do sistema, é efetuada uma chamada a uma de suas rotinas através de uma chamada de sistema
+
+3) O que é interpretador de comandos?
+
+O interpretador de comandos (shell) pode ser visto como a interface entre o usuário de um terminal e o sistema operacional
+interpretador de comandos permite aos usuários uma interação amigável com o sistema
+
+4) O que são instruções privilegiadas e não-privilegiadas? Qual a relação destas instruções com os modos de acesso?
+
+Desta forma, existem instruções que só podem ser executadas pelo sistema operacional ou serem executadas sob sua supervisão. As instruções que são capazes de comprometer a segurança e a integridade do sistema computacional são conhecidas como instruções privilegiadas Para controlar a execução das instruções privilegiadas o processador possui um mecanismo de proteção denominado modos de acesso. Basicamente, existem dois modos de acesso: modo usuário e modo núcleo (modo kernel). Quando o processador está operando no modo usuário, apenas instruções não-privilegiadas podem ser executadas, enquanto no modo núcleo todas as instruções do processador podem ser executadas. Desta forma, para que uma instrução privil
+
+5) O que é o padrão POSIX?
+
+especifica um conjunto de chamadas de sistema de tal forma que um programa de aplicação desenvolvido com base neste padrão possa ser executado em qualquer sistema operacional que suporte o padrão POSIX
+
+6) O que é núcleo do sistema operacional e quais são suas principais funções?
+
+O sistema operacional é formado por um conjunto de rotinas que oferece serviços aos usuários, aos programas de aplicação e ao próprio sistema computacional. Este conjunto de rotinas é denominado núcleo do sistema operacional (kernel).
+    • Tratamento de interrupções e exceções.
+    • Criação e eliminação de processos e threads.
+    • Sincronização e comunicação entre processos e threads.
+    • Escalonamento e controle dos processos e threads.
+    • Gerência de memória.
+    • Gerência do sistema de arquivos.
+    • Gerência de dispositivos de entrada e saída (E/S).
+    • Suporte a redes locais e distribuídas.
+    • Controle da utilização dos recursos do sistema computacional.
+    • Funções de auditoria e segurança do sistema computacional.
+
+7) Quais as principais diferenças entre os sistemas operacionais para máquinas de grande porte (mainframes) e para computadores pessoais?
+nenhuma
+
+
+
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
 
 
 
