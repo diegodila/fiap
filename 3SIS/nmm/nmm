@@ -108,8 +108,94 @@ todo dispositivo intermediario tem embtido um repetidor
 cada rede tem seu proprio dominio de broadcast
 4 redes, 4 proprio end de broadcast
 
-
 ------------------------------------------------------
+A03-120421 camada osi x tcp/ip
+osi 
+app
+apresentacao 
+sessao 
+transporte
+rede
+enlace
+fisica
+
+
+tcp/ip
+app
+transporte
+internet endereço atribuido pelo administrador(ip)
+acesso a rede(endereço atribuido pelo fabricante (MAC))
+
+endereçamento ip 
+todo dispositivo final que se conecta a internet precisara ter um end ip nele
+ou ipv4 ou ipv6 ou dual stack
+o roteador manda o endereço ip para a maquina em que estou me conectando, ou qualquer dispositivo em que eu consiga instalar um serviço, onde ele distribui automaticamente o en ip. 
+
+o dhcp, dynamic host configuration host.
+o dhcp é um serviço
+
+4 bytes 
+
+112. 240.13.20 4 bytes e em cada byte é 8 bits
+byte. byte. byte. byte
+
+classe A é onde o primeiro byte endereça uma rede e outros bytes, 3bytes endereçam hosts na rede 
+
+mascara padrao da classe a serve para extrair de uma endereço ip a parte que identifica a rede que ele pertence 
+
+uso a mascara para extrair atraves do endereço ip a rede
+
+ip 112. 240.13.20
+mask 255.0.0.0
+end rede???
+end broadcast
+
+rede 112.0.0.0
+broadcast 112.255.255.255
+
+usamos os tres bytes disponiveis para host para achar o endereço de broadcast, setamos um 1 para cada bit chegamos a 255
+sempre temos que pegar a parte de host, e pegar os bytes disponiveis
+
+classe A 0 - 127
+classe B 128 - 191
+classe C 192 - 223
+
+191.168.13.20
+dois bytes destinados a rede e 2 destinados a host
+
+ip 191.168.13.20
+mask 255.255.0.0
+rede 191.168.0.0
+broadcast 191.168.255.255
+
+ip classe c 200.200.200.20
+mask 255.255.255.0
+rede 200.200.200.0
+broadcast 200.200.200.255
+
+classe A ele tem 3 bytes destinados a hosts, 16 bilhoes de hosts 
+
+classe b 2 bytes rede 2 bytes host, 65.534 de disppositivos conectados a rede (USP, grandes empresas)
+
+classe c 3bytes rede 1 host. 254 endereços validos 
+
+endereço de loopback, classe a 127.0.0.0
+ping 127.0.0.1 -> endereço de loopback 
+127 é um esquema de endereçamento pra testes, chamados testes de loopback
+ping mandando dados para placa de rede
+dispositivo de camada 3 é o roteador ou um firewall,
+a interface com o dispositivo de camada 3 é o gateway(GATEWAY)
+no mundo inteiro
+cada rede tem seu endereço proprio de rede
+toda rede que se conecta a um gateway tem um end unico e exclusivo de rede
+todos os equipamentos de uma rede ex rede2 tem o mesmo endereço de rede e o roteador vai divulgar esse endereço de rede pra internet 
+
+estamos conectados a uma rede local e essa rede local possui um endereço de rede exclusivo dela (cpf)
+e é isso que permite o roteamento
+quando alocamos dois endereços de classe c para 2 redes diferentes podemos estar disperdiçando recursos, pois a alocação da classe c permite 254 end de host, dai nasce sub redes, esquema que as operadoras usam muito bem
+
+existe o conceito de dominio de broadcast 
+
 
 ------------------------------------------------------
 
