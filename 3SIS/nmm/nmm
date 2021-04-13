@@ -234,6 +234,70 @@ a maioria do switchs vem com um protocolo
 eles desabilitam a redundancia
 
 ------------------------------------------------------
+A04-130321
+
+endereçamento ip precisamos em cada disppositivo final
+ou ipv4 ou ipv6 ou a combinação dos dois
+
+ipv4 temos classe a b c 
+
+o futuro é o ipv6
+em cada host precisamos de um endereçamento ip
+
+quando e u modifico a mascara padrao eu tenho cide
+
+255.0.0.0 classe a barra 8  1 bytes indica a rede 
+255.255.0.0 classe b barra 16 2 bytes indica a rede 
+255.255.255.0 classe c barra 24 3 bytes indica a rede
+
+ip 143.107.21.13 
+mask 255.255.0.0
+rede 143.107.0.0
+broadcast 143.107.255.255
+
+ip 200.200.200.200
+mask 255.255.255.0
+rede 200.200.200.0
+broadcast 200.200.200.255
+
+ip 191.2.3.4
+mask 255.255.255.0
+
+classe a 0 127
+classe b 128 191
+classe c 192 
+
+quando pegamos um endereço ip que é originalmente b com a mascara 255.255.255.0 ele é cidr, ele entrega algo equivalente a classe c, com essa mascara ele entrega uma subrede da classe b com o tamanho da classe c 
+
+ip 200.200.200.200 //originalmente pertencia a classe c
+mask 255.255.255.128 //mudamos a mask default é .128
+rede 200.200.200.128 //subrede a rede esta dividida
+broadcast 200.200.200.255 //
+
+quando quebro a mask em duas subredes .128
+
+ip 210.211.212.213
+mask 255.255.255.192
+rede 210.211.212.192
+broadcast 210.211.212.255
+rede 210.211.212.192
+
+gateway 215.65.68.1
+mask default 255.255.255.0
+mask sub 255.255.255.192
+rede 215.65.68.0
+broadcast 215.65.68.63
+
+gateway 211.35.45.65
+mask default 255.255.255.0
+mask sub 255.255.255.192
+rede 211.35.45.64
+broadcast 211.35.45.127
+
+gateway 192.0.0.129 convencionamos sempre usar o gateway o primeiro en ip disponivel
+mask 255.255.255.224
+rede 213.210.65.128
+broadcast 192.0.0.159
 
 ------------------------------------------------------
 
