@@ -145,7 +145,7 @@ mascara padrao da classe a serve para extrair de uma endereço ip a parte que id
 
 uso a mascara para extrair atraves do endereço ip a rede
 
-ip 112. 240.13.20
+ip 112.240.13.20
 mask 255.0.0.0
 end rede???
 end broadcast
@@ -196,6 +196,39 @@ quando alocamos dois endereços de classe c para 2 redes diferentes podemos esta
 
 existe o conceito de dominio de broadcast 
 
+apenas uma requisao dhcp gerou varios broadcast na rede
+
+tem um ataque na rede, que envia pacotes para o endereço de broadcast (ataque smurfy) diminuindo o desempenho da rede 
+podemos gerar uma carga de pacotes, mundando o protocolo
+as redes tem conviver com broadcast 
+cada gateway é uma interface do roteador sendo assim uma rede ou (subredes) cada rede precisa de um id ou end de rede 
+
+o gateway do roteador barra o broadcast na rede
+ele não propaga broadcast
+assim o pc1 envia broadcast apenas para sua rede
+entao a area amarela (lan) é um dominio que é barrado
+ela denota um endereço de rede, que tem um endereço de broadcast
+
+cada laboratorio é uma rede propria para limitar o tamanho do dominio de broadcast
+uma soluçao seria alocar um classe c para cada laboratorio
+ou pegamos 1 classe c e quebrar em 4
+cidr é sem classe 
+roteamento com endereço ip sem classe 
+
+ip 200.200.200.125
+mask 255.255.255.128
+rede 200.200.200.0
+broadcast 200.200.200.127
+
+ip 201.202.203.204
+mask 255.255.255.128
+rede 201.202.203.128
+broadcast 201.202.203.255
+
+ip 195.196.197.198
+mask 255.255.255.192
+rede 195.196.197.192
+broadcast 195.196.197.255
 
 ------------------------------------------------------
 
