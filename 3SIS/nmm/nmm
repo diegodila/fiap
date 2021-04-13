@@ -230,6 +230,9 @@ mask 255.255.255.192
 rede 195.196.197.192
 broadcast 195.196.197.255
 
+a maioria do switchs vem com um protocolo 
+eles desabilitam a redundancia
+
 ------------------------------------------------------
 
 ------------------------------------------------------
