@@ -234,7 +234,7 @@ a maioria do switchs vem com um protocolo
 eles desabilitam a redundancia
 
 ------------------------------------------------------
-A04-130321
+A04-130421
 
 endereçamento ip precisamos em cada disppositivo final
 ou ipv4 ou ipv6 ou a combinação dos dois
@@ -308,7 +308,7 @@ gateway é a interface do roteador que meu equipamento esta utilizando para sair
 o endereço ip do meu equip e end gateway precisam estar na mesma rede. Gateway e end ip host precisam estar na mesma rede  
 
 ------------------------------------------------------
-A05-140321
+A05-140421
 
 curso roteamento, switching e redes sem fio (cisco)
 
@@ -363,6 +363,33 @@ VLAN - apenas via config virtualizar a rede como virturalizo servidores
 
 cada rede virtual precisara de uma rede pra ela 
 ------------------------------------------------------
+A06-140421 VLAN 
+
+roteadores equivalentes a switch são mais caros 
+mas acontece de em redes investirem mais em switchs 
+
+podemos ter switchs com interface para ligar em roteadores
+
+roteadores tem interface com a wan 
+e tem switchs (roteadores mais simples)
+
+lentidao de rede pode acontecer por muitos broadcast na rede local
+no cenario 1 temos apenas um dominio de broadcast
+o correto é delimitar e quebrar em subredes
+um dominio de broadcast equivale a uma rede 
+
+colisao acontecia bastante quando tinhamos hubs e switchs antigos 
+
+colisao foi resolvido com cabo de par trançado
+cabos de redes evoluiram a ter varios pares trançados
+
+a interface do roteador nao propaga broadcast 
+
+a forma de entrega do protocolo dhcp se comporta da mesma forma no roteador e no switch
+
+o roteador nao deixa a requisicao dhcp chegar a outra rede, pois ele nao propaga broadcast
+
+utilizar mascaras para dividir em redes menores
 
 ------------------------------------------------------
 
