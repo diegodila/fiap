@@ -308,7 +308,60 @@ gateway é a interface do roteador que meu equipamento esta utilizando para sair
 o endereço ip do meu equip e end gateway precisam estar na mesma rede. Gateway e end ip host precisam estar na mesma rede  
 
 ------------------------------------------------------
+A05-140321
 
+curso roteamento, switching e redes sem fio (cisco)
+
+o roteador só tem uma interface sendo utilizada, sendo assim uma rede local, ou uma rede. Mesmo que tenha muitos hosts conectados a varios switchs
+
+192.168.0.2
+dhcp dynamic host configuration protocol
+na maioria das vezes a rede devolve o end ip 
+o celular acessando o 4g, a rede devolve um end ip pelo dhcp 
+o servidor dhcp responde com um end ip
+quando um laptop chega na rede, mandar um requisicao
+dhcp, tem ter um equipamento que responda dhcp com endereço ip pra ser alocado no laptop
+o servico de alocação de end ip, pode ser configurado em qualquer equipamento da rede que rode o servico dhcp
+
+um pc dhcp pode ser um problema de segurança
+podemos instalar no servidor 
+no switch, pode ser configurado
+e o roteador pode ser configurado para fornecer o servico dhcp
+
+o roteador atua como servidor dhcp da rede(não em todos os casos, acontece ou é mais comum nas redes pequenas)
+
+onde o roteador tem pouca dependencia para ser um servidor dhcp 
+o papel principal é rotear, pendurando serviços em uma rede de grande porte, pode degradar a performance do roteador
+
+quando a resposta do servidor dhcp volta em broadcast passando pela rede inteira, ela carrega o endereço de mac do pc, sendo direcionado exatemente para o equipamento que fez a requisicao 
+
+dhcp é apenas um dos inumeros protocolos que enviam broadcast em rede local
+muito broadcast vai degradando a rede 
+uma rede muito grande no mesmo dominio de broadcast vai sofrer com broadcast
+uma exemplo é dhcp que gera broadcast para toda rede local 
+meu dominio de broadcast é o dominio da minha rede
+
+uns dos problemas de uma rede muuito grande é a questao do desempenho 
+
+o que vai fazer para não sofrer com inumeros broadcast?
+criar subredes (dividir a rede em rede menores)
+
+roteador ele nasceu para separar redes diferentes
+
+quando o roteador tem mais interface temos que ver se ele é expansivel. assim comprando mais uma interface do roteador 
+o problema que interface do roteador é a parte mais cara do roteador, custando milhares de dolares ou ate a milhoes
+
+dilema é quebrar a rede e a interface do roteador
+
+quando falamos de um roteador barato comum de casa 
+nos temos uma inteface de roteador, o resto sao switchs
+as portas amarelas sao switchs
+
+uma forma é voltar ao cenário inicial e inves de pegar a rede e quebrar em redes menores, podemos os usar o conceito de vlan, virtualização de redes
+
+VLAN - apenas via config virtualizar a rede como virturalizo servidores 
+
+cada rede virtual precisara de uma rede pra ela 
 ------------------------------------------------------
 
 ------------------------------------------------------
