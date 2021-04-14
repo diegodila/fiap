@@ -299,6 +299,14 @@ mask 255.255.255.224
 rede 213.210.65.128
 broadcast 192.0.0.159
 
+meu pc ipv4 
+mask padrao
+
+meu equipamento precisa um roteador para eu consiga para internet, meu equipamento precisa achar um roteador
+a porta do roteador que estou conectado é o meu gateway para sair para internet
+gateway é a interface do roteador que meu equipamento esta utilizando para sair para outra rede
+o endereço ip do meu equip e end gateway precisam estar na mesma rede. Gateway e end ip host precisam estar na mesma rede  
+
 ------------------------------------------------------
 
 ------------------------------------------------------
