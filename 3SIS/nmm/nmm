@@ -392,6 +392,13 @@ o roteador nao deixa a requisicao dhcp chegar a outra rede, pois ele nao propaga
 utilizar mascaras para dividir em redes menores
 
 ------------------------------------------------------
+A07-140421 Prova 
+
+rede 3 portas wan/lan
+switch 0 nenhuma host conectado a ele
+
+rede 202.202.202.0 
+mask 255.255.255.0
 
 ------------------------------------------------------
 
