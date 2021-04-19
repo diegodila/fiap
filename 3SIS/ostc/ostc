@@ -209,7 +209,35 @@ nenhuma
 
 A arquitetura x86 tem 8 registradores de uso geral (registradores de propósito geral
 ------------------------------------------------------
-A08 
+A08 Thread 
+
+multithread maioria das app sao
+editor de texto tem mais de 3 threads (thread de faz interface com teclado),(fluxo de exec fazendo o corretor ortagradio) (formatação do texto) (fluxo pra salvamento de automatico) (teclas de atalho) (interface grafica com users)
+thread é um fluxo de exec dev pela ibm 
+definição de thread, os programas eram repre por uma unic fluxo de exec 
+na app multi thread temos multi flux de exec 
+
+thread princpal tiv criad (usb,timer,porta logica) tambem ficam a disposição de todas threads
+processo multithread
+quando elas acessam a mesma area elas moram juntam na memoria 
+
+todas a threads estao na mesma regiao de memoria, elas compart do mesmo contx de software
+
+o so protege o espaço de endereçamento de um processo do outro 
+area de memoria comum 
+comunicação de processos? 
+quando trabalho com threads conseguem acessar, escrever e ler, sendo a posição de memoria comum entre os processos 
+
+a thread simplesmente utiliza dos recursos, nao precisam alocar ou retirar 
+criar ou destruir uma thread é simples pois nao se preocupamos com recursos 
+
+a maioria dos servidores web tem a uma arquitetura de thread
+
+se uma thread precisar fazer uma op de ent e said ela vai sozinha e as outras continuam trab 
+principal beneficio é nao para a app por completo
+
+
+
 ------------------------------------------------------
 A09
 ------------------------------------------------------
