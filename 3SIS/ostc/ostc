@@ -149,7 +149,7 @@ A05-050421
 fifo- primeiro a entrar e primeiro a sair 
 
 ------------------------------------------------------
-APROVA
+A07-PROVA
 
 Conceitos Básicos sobre Sistemas Operacionais
 Processos
@@ -236,6 +236,8 @@ a maioria dos servidores web tem a uma arquitetura de thread
 se uma thread precisar fazer uma op de ent e said ela vai sozinha e as outras continuam trab 
 principal beneficio é nao para a app por completo
 o so trabalha num outro nivel, antes escalonamento de processos agora de threads
+
+thread em modo users e modo kernel
 
 
 ------------------------------------------------------
