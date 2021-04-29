@@ -366,15 +366,18 @@ Otimização por já ter práticas definidas e difundidas entre os colaboradores
 **[2]
 F do MPS.br. (peso 2) Liste as áreas de processo (práticas) do MPS.br que já estão atendidas e quais serão atendidas pelo uso de GIT-Controle de Versão, ORACLE DATA MODELER-Diagramação de BD e BIZAGI MODELER-Diagramação de Processos (veja onde as práticas que aplicam essas ferramentas se enquadram entre as áreas de processos listadas nos níveis do MPS.br.
 
-Liste as áreas de processo (práticas) do MPS.br que já estão atendidas: Pela empresa estão sendo atendidas o ate o nivel gerenciado. Sendo os processos de gerencia de requisitos e projetos, aquisição. gerencia de configuração, medição e garantia da qualidade
-
-Exemplo de resposta esperada: “A ferramenta GIT-Controle de Versão, ORACLE DATA MODELER, 
-
-BIZAGI MODELER - gerencia de requisitos
-data MODELER - gerencia de configuração 
+Liste as áreas de processo (práticas) do MPS.br que já estão atendidas:**[2]
+Pela empresa estão sendo atendidas o ate o nivel gerenciado. Sendo os processos de medição, aquisição, garantia da qualidade, gerencia de configuração, gerencia de requisitos e projetos. 
 
 
- e as atividades de análise e limpeza de dados têm relação com os processos de Verificação e Validação de qualidade dos dados.”
+GIT-Controle de Versão - têm relação com os processos de garantia de qualidade e medição
+
+BIZAGI MODELER - têm relação com os processos de gerencia de requisitos
+
+DATA MODELER -têm relação com os processos de gerencia de configuração e gerencia de requisitos**
+
+Exemplo de resposta esperada: “As ferramentas GIT-Controle de Versão, ORACLE DATA MODELER,
+e as atividades de análise e limpeza de dados têm relação com os processos de Verificação e Validação de qualidade dos dados.”
 
 **
 
