@@ -401,6 +401,24 @@ rede 202.202.202.0
 mask 255.255.255.0
 
 ------------------------------------------------------
+A08-280421 
+
+quando clicamos no modo simulation, show all none(enche de protocolos > add filter> dhcp ) entramos em modo de simulação simulando o protocolo dhcp 
+
+painel de controle 
+
+pc6> desktop > ip configuration> simplificamos a rede marcando dhcp configuração 
+
+quando enviamos uma requisição, ele envia uma requisao broadcast, o switch encaminha para todas as portas, todos os equi recebem inclusive o roteador, parando no roteador(sendo o fim do dominio de broadcast)
+
+todos equipamentos recebem a requisao dhcp em forma de broadcast, so o servidor possui o serviço dhcp, respondendo (chamando dhcp offer) e essa resposta volta em broadcast 
+
+o protocolo define que deve ser por broadcast
+protocolo arp que faz uso de protocolo de broadcast 
+
+dhcp é um servico de distribuição de endereçamento ip
+
+
 
 ------------------------------------------------------
 
