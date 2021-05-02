@@ -418,7 +418,17 @@ protocolo arp que faz uso de protocolo de broadcast
 
 dhcp é um servico de distribuição de endereçamento ip
 
+dhcp discovery (perguntando a rede) indo para todos equipamentos da rede 
+dhcp offer(responde a requisao)
+dhcp request(requisita a rede)
+dhcp acknowledgment(confirma)
 
+conceito de segurança (dmz) dezmilitarizada
+separamos de o servidor dhcp, fora de rede (configuramos no roteador ou no switch(se ele permitir essa capacidade))
+
+router> enable configure terminal 
+
+router>dhcp pool rede
 
 ------------------------------------------------------
 
