@@ -1,3 +1,593 @@
+test
+
+flutter é um framework escrito em dart
+
+tudo é um widget no flutter 
+framework reativo moderno 
+assicrona
+animções em flutter são bem rapidas 
+webview não é tao boa
+
+xamarin é transformado (tradução para nativo) desenvolve em c# e transforma
+muito trabalhoso para fazer os elementos visuais 
+precisa fazer muito codigo para fazer animações ou layout bonito 
+
+react native (facebook)
+muito bem avaliado, muito parecido com aplicativo nativo 
+
+Ionic(drifty.co)
+perdeu espaço para o flutter 
+
+pioneiro (Apache Cordova)
+apps nativos nao tem comparação 
+o nativo é mais rapido, em telas, renderização, layouts 
+
+o nativo tem o problema do custo (ter duas pessoas android ou ios)
+
+em comunidade empata(nativoXhibrido)
+visual do nativo é mais rapido(pq esta direto no so, sendo mais fluido)
+
+empate no aprendizado
+
+nativo ganha em recursos do aparelho
+pra acessar recursos o hibrido usa o nativo para fazer isso 
+baixo nivel é mais facil de fazer no nativo (kotlin)
+
+custo é mais barato (1 time só)
+mas mesmo assim empresar preferem ter 2 times, em startup geralmente vai para uma solução hibrida
+
+------------------------------------------------------
+A02-020521
+no dart temos um main por projeto
+java o main é uma metodo estatico e recebe parametro 
+no dart nos metodos nao precisamos declarar o retorno
+e o underlaine é o que significa se o metodo é privado ou não 
+2 notificadores de acesso no dart publico e privado 
+
+void main() {
+    for (int i = 0; o < 5; i++){
+        printInteiro(i);
+    }
+}
+printInteiro(int numero){
+    print('O numero é:$numero.');
+}
+
+String nome = 'Valor';
+var n2 = 'v1';
+var n3 - 10;
+dynamic nd = 'String'
+
+dynamic aceita qualquer tipo, permite ficar atribuindo varios tipos de valores, ja o var não
+
+é mais comum ter o var 
+em java sempre temos que tipar as variaveis
+
+void main() {
+    int salario; // em java não conseguiriamos pois, teriamos q atribuir um valor 
+    if(salario == null) {
+        print('É nulo');
+    } else {
+        print('Não é nulo');
+    }
+}
+
+10.[conseguimos acessos propriedades e metodos, pq o 10 é um obj]
+''. string tambem 
+tudo é tratado como obj no dart 
+
+varTypes 
+numbers 
+strings
+booleans 
+lists
+sets
+maps
+runes(usado em expressões  Unicode)
+Symbols (usado para buscar classes ou bibliotecas por strings)(cuidado por gera uma grande carga no apps)
+
+// String to int
+var valorInteiro = int.parse('1');var variavel = 'Um valor qualquer';
+
+// String to double
+var valorDecimal = double.parse('1.1');var s1 = 'Concatenação '
+'de springs '
+"funciona em várias linhas .";
+
+// Int to String
+String stringNumero = 1.toString();var s2 = 'A concatenção com + ' + 'funciona
+dessa forma tb, ${variavel}.';
+
+// Double do String converte e fixa casas decimais 
+String numeroPI = 3.14159.toStringAsFixed(3);
+
+String s1 = 'S1';
+String s2 = 'S2';
+String s3 = 'S3.1'
+            's3.2'
+            's3.3'; //adotar sempre aspas simples ate o final
+
+print(s3);
+
+String s4 = s1 + '';
+String s4 = 'Valor total: $s1 $s2 $s3'
+print(s4);
+
+String s4 = s1 + ' ' + s2; // não usar
+
+//podemos fazer uma operação dentro das chaves
+String s4 = 'Valor total: $s1 $s2 $s3 ${3 + 10}'
+
+String s5 = ''' Flavio 
+                Moreni
+                Fiap
+                2021
+                flutter'''; //imprime literal 
+print(s5)
+
+Lists 
+
+// declarando a lista
+
+// Adicionando o conteudo de 1 no final de 2
+var list2 = [0,10,11, ...?list]; // ...? palavra reservada, para copiar os valores 
+
+// Adicionando o conteúdo de 2 no início de 3
+var list3 = [...?list2, 20, 21, 22]; // copia da lista 2, com outra parcela que inputamos 
+
+
+// Adicionando mais um valor em 3
+list3.add(25); //metodo add que temos para adicionar o elemento
+
+bool permiteUva = true;
+
+var lista = [
+'Banana',
+'Maça' ,
+'Pera',
+if(permiteUva) 'Uva'
+]; // adicionando uma condição dentro da lista. usando na declaração da lista, para ter o valor
+
+FUNCTIONS
+
+// retorno explícito, definindo o retorno bool
+bool ehImpar(int numero) {
+    return numero.isOdd;
+}
+// retorno implícito
+ehOdd(int numero) {
+    return numero.isOdd;
+}
+
+ARROW FUNCTIONS 
+// retorno explícito
+bool numeroImpar(int numero) => numero.isOdd;
+
+// retorno implícito
+numImpart(int numero) => numero.isOdd;
+
+quando o retorno é uma chave só. Usando tambem em kotlin
+
+PARAMETROS OPCIONAIS 
+
+//forma comum em java, sendo o parametro opcional
+printInteger(int aNumber) {
+    print(aNumber);
+}
+printInteger(int a, int b) //sobrecarga de metodo e dart nao tem sobrecarga de metodo, ele deixa os parametros opcionais 
+
+//dart permite um metodo com varios parametros opcionais
+//sempre definimos entre chaves quais os parametros opcionais
+//
+printInteger(int a, {int b}) {
+    print('$a $b');
+}
+
+main() {
+    int number = 42;
+    //printInteger(aNumber: number);
+    //printInteger();
+    //printIntenger(number, 10); // Erro de compilação
+    printIntenger(number, b:2); // Passando o segundo parametro
+    printInteger(a:2,b:3);//passando os parametros opcionais 
+    printIntenger()//nenhum parametro opcional 
+}
+
+
+label({String borda, String background}) {
+    print($borda $background);
+}
+
+main() {
+    int number = 42;
+    //printInteger(aNumber: number);
+    //printInteger();
+    printIntenger(number); // Erro de compilação
+}
+
+//Segunda forma de passar parametros opcionais
+usamos chaves quando precisamos passar os parametros dentro da chaves de forma a forçar que não há possibilidade de passar 1 parametro so 
+printNome(String primeiro,[String segundo, String sobrenome]) {
+    print('$primeiro $segundo $sobrenome');
+}
+
+main(){
+    printNome("Flavio");
+    printNome("Flavio", "Eduardo");
+    printNome("Flavio", "Eduardo", "Moreni");
+}
+//definindo um valor default para o parametro opcional para o valor não ficar nulo quando não passamos nada no valor
+
+printNome(String primeiro, {String segundo = 'Flutter'}) {
+    print($primeiro $segundo);
+}
+main() {
+    String nome = 'Flutter'
+    printNome('Flavio');
+}
+
+void main(){
+   var frutas = ['maça', 'banana', 'laranja'];
+   frutas.forEach((nome){
+     print(nome)
+   });
+}
+//função privada 
+_funcaotest(){
+
+}
+CLASSES 
+
+class Point {
+  int x, y;
+
+  
+//   // Sintaxe para setar x e y
+//   Point(this.x , this.y);
+//     this.x = x;
+//     this.y = y;
+// }
+ // Sintaxe para setar x e y e tambem podemos passar parametros opcionais
+  Point({this.x , this.y});
+  
+  // Named cosntructor, podemos ter um constructor diferente com o nome da classe
+  Point.fromJson(String conteudoJson){
+    //Parse;
+  }
+}
+
+void main() {
+  Point p = new Point();
+
+  Point p2 = new Point.fromJson("ahsdjnaksjd")
+}
+
+void main() {
+  var p1 = new Person(); // Erro de compilação
+  var p2 = Pessoa.fromJson("{valor: 'texto'}");
+}
+
+class Pessoa {
+  String nome;
+  Pessoa.fromJson(String jsonContent) {
+  print('executou o fromJson de Pessoa');
+}
+------------------------------------------------------
+A03 StatelessWidget Widget MaterialApp Demais Widgets
+
+StatelessWidget widget sem estado (conteudo dele não sofre alteração) sem estado, stateless O
+statefull (muda o estado)
+stateless tem movimento porem não conseguimos carregar ele (load)
+stateless é tipo de widget 
+materialApp é um widget tambem
+no dart criamos um projeto flutter
+pag 7 pegar o cod
+
+lista de widget 
+cupertino sao elementos no padrao ios 
+flutter doc > widget catalog
+
+Card
+sempre importa o package:flutter/material.dart
+runApp() //fica dentro do main, e o runApp processa os widgets ou o flutter, passando como parametro a tela, ou a classe que tem a tela 
+
+class Myapp extends StatelessWidget // é uma classe que extend do full ou stateless 
+
+// criando uma tela 2 
+class Tela2 extends StatelessWidget // assim que começamos a criar a tela
+//quando extendemos da classe StatelessWidget somo forçados a escrever o metodo build 
+
+Widget build(BuildContext context) // BuildContext (classe)
+
+// classe que cria o App
+class MyApp extends StatelessWidget {
+  // Primeiro método a ser executado
+  @override
+  Widget build(BuildContext context) {
+  // Criando o Widget do Material App e um Texto Olá
+  return MaterialApp(home: Text("Hello, Fiap Flutter"),);
+  }
+}
+
+MaterialApp tem varios parametros, locale geo, routes
+MaterialApp é só um esqueleto, onde passamos o parametro home
+o home indica qual elemento visual que vai ser renderizado
+
+
+Criamos uma classe que vai renderizar a tela, ela extende do statelessWidget, temos que sobrescrever o metodo build, retornando um widget que no caso é o materialApp
+Stateless sempre tem o metodo build e ele retorna os elementos
+Text o primeiro elemento é umas string de dados, que é obrigatorio
+
+temos um catalogo de widget
+column não é um elemento visual, mas ajuda empilhar os elementos
+acessando  o Widget catalog
+
+Melhorando 
+
+return MaterialApp(
+  home: Card(
+    child: Text(
+      "Hello, Fiap Flutter",
+      textAlign: TextAlign.center, //TextAlign é uma constante
+      style: TextStyle(
+      fontSize: 40,
+      ),
+    ),
+  ),
+);
+
+passamos o parametro pro home colocamos null ate colocarmos algum card
+é importante definirmo o child do widget para informarmos um texto dentro do widget principal
+na hora que construimos o card precisamos passar qual elemento vai estar dentro do card, não conseguimos passar o Text diretamente para o Card, pois ele o parametro que temos para passar o elemento que vai dentro do Card é child: Text('Olá')
+a virgula é importante dentro do parametro para quando formatamos o codigo ele deixa um pouco mais organizado
+o child é singular, então só podemos ter um elemento dentro
+
+
+ListTile
+
+MaterialApp(
+      home: Card(
+        child: ListTile(
+          title: Text(
+            '9999 Super Street',
+            style: TextStyle(fontWeight: FontWeight.w500),
+          ),
+          subtitle: Text('Name City, EST 99999'),
+          leading: Icon(
+            Icons.restaurant_menu,
+            color: Colors.blue[500],
+          ),
+        ),
+      ),
+    );
+
+Listtile permite um espaço do lado esquerdo, (lading), permite um title e ele permite um subtitle, e um espaço  
+
+child: ListTile(
+  title: Text(
+    '9999 Super Street',
+    style: TextStyle(fontWeight: FontWeight.w500),
+    ),
+    subtitle: Text('Name City, EST 99999'),
+    leading: Icon(
+      Icons.restaurant_menu,
+        color: Colors.blue[500],
+        ),
+    ),
+
+//leading: parameter a esquerda do listtile
+//trailing: parameter a direita do listtile
+//title: 
+//subtitle: 
+podemos passar um texto para cada parametro do listtile
+leading: Icon(Icon.restaurant_menu, color: Colors.blue),
+title: Text('999 St domingues'),
+subtitle: Text("Vancouver, British Columbia, 99999"),
+trailing: Text("n4"),
+trailing: Icon(Icon.arrow_forward, color: Colors.redAccent),
+
+child: Column() //permite empilhar varios elementos
+o child recebe um unico elemento dentro do widget
+dentro do column podemos colocar dois Listtile
+dentro do column temos varios parametros e dentro desse parametro 
+temos o List<Widget> children = const <Widget>[]
+o children é um propriedade ou parametro que recebe uma lista de widgets
+se quisermos empilhar os card inverteriamos, ao invés de colocar os listTile
+
+para fazer o evelopamento do um card o listtile, podemos clicar com o botao direito e wrap e ele seta dentro column
+
+Widget cardRestaurant(String adress, String city, String phone){
+}
+class MyApp2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Card(
+        child: new CardRestaurant('999, st richards, 'Vancouveers, Bc, 99999', '55(11) 99999-44222')
+    );
+  }
+}
+
+Widget cardRestaurant(String adress, String city, String phone){
+   return Column(children: [
+            ListTile(
+              title: Text(
+                adress,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text(city),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+            ListTile(
+              title: Text(
+                phone,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text('Name City, EST 99999'),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+          ],
+        ),
+      );
+}
+
+class CardRestaurant extends StatelessWidget {
+  String adress,city, phone;
+
+  CardRestaurant(this.adress, this.city, this.phone);
+
+  Widget build(BuildContext context){
+    return return Column(children: [
+            ListTile(
+              title: Text(
+                adress,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text(city),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+            Divider(),
+            ListTile(
+              title: Text(
+                phone,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text('Name City, EST 99999'),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+          ],
+        ),
+      );
+  }
+}
+
+podemos tanto chamar um metodo como chamar uma classe como descrito acima, instaciamos o new para a nova classe ou chamamos o metodo que construimos para retornar o widget
+
+O widget divider é usado para colocar uma linha e dividir
+o column é uma lista de widget, ele permite colocar um listtile(), divider() 
+column vai aceitando qualquer widget
+sizedBox() é um elemento visual que envolve o Card(),
+
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: new CardRestaurant('999, st richards, 'Vancouver, Bc, 99999', '55(11) 99999-44222')
+    );
+  }
+}
+
+class CardRestaurant extends StatelessWidget {
+  String adress,city, phone;
+
+  CardRestaurant(this.adress, this.city, this.phone);
+
+  Widget build(BuildContext context){
+    return SizedBox(
+      height: 210,
+      child: Card(
+        child: Column(children: [
+            ListTile(
+              title: Text(
+                adress,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text(city),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+            Divider(),
+            ListTile(
+              title: Text(
+                phone,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text('Name City, EST 99999'),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+          ],
+        ),
+      )
+    );
+  }
+
+
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Column(
+        children: [
+         new CardRestaurant('999, st richards, 'Vancouver, Bc, 99999', '55(11) 99999-44222'
+         ),
+         new CardRestaurant('999, st richards, 'Vancouver, Bc, 99999', '55(11) 99999-44222'),
+        ],
+      )
+    );
+  }
+}
+
+class CardRestaurant extends StatelessWidget {
+  String adress,city, phone;
+
+  CardRestaurant(this.adress, this.city, this.phone);
+
+  Widget build(BuildContext context){
+    return SizedBox(
+      height: 210,
+      child: Card(
+        child: Column(children: [
+            ListTile(
+              title: Text(
+                adress,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text(city),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+            Divider(),
+            ListTile(
+              title: Text(
+                phone,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text('Name City, EST 99999'),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+          ],
+        ),
+      )
+    );
+  }
+
+------------------------------------------------------
+
+
 class Myapp extends StatelessWidget {
 // Primeiro método a ser executado
     @override 
@@ -78,3 +668,38 @@ class MyApp extends StatelessWidget {
 //create 
 //
 //
+
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
