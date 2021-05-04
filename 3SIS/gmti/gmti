@@ -298,6 +298,54 @@ o togaf chama de continum empresarial
 estão tudo no repo de gestao de requisitos 
 o git é o garantidor do continum empresarial
 
+missao: é um sonho é algo infalivel, qual a grande missao dela 
+visão: até onde ela que chegar 
+valores: são as condicionantes dos trabalhadores
+objetivo: define o quer ela quer alcançar 
+meta: quanto voce vai pagar para alcançar aqueles objetivos 
+
+[4/19, 9:18 PM] Renato Jardim Parducci
+    
+ARQUITETURA DE SOLUÇÕES DE TI COM TOGAF!
+    
+COmeçamos o TOGAF - Estrutura de trabalho para arquitetar soluções
+    
+1a Fase: PRELIMINAR - vamos conhecer o que a empresa faz e quer
+
+Missão: ajudar empresas a desenvolverem seus negócios com sucesso através da tecnologia
+
+Visão: desenvolver soluções próprias de software e em parceira com outras empresas, customizando as soluções para os clientes e provendo suporte técnico.
+    
+Valores: excelência técnica, gerenciamento preciso das operações, desempenho elevado na entrega e atendimento
+    
+Objetivos: destacar-se entre as 30 maiores empresas de soluções de TI do Brasil
+    
+Meta: alcançar esse objetivo em 13 anos.
+    
+2a Fase: A-Visão de Arquitetura
+Propósito: conhecer os departamentos da empresa, seus macroprocessos (assuntos que tratam) e como as soluções de TI atendem hoje o negócio.
+Em seguida, propor um escopo de novas soluções
+
+visao: tem que dizer exatamente o que voce vai fazer, um pouco mais detalhe do que voce quer fazer 
+
+missao: é imutavel 
+
+togaf
+fase a. visao de arquitetura
+montar um painel, forma sugerida pelo togaf
+2 coluna macroatividades que os processos fazem 
+mapear todos os processos das areas, na frente voce coloca todos os sistemas que ela controla
+
+verde significa que aquela area de negocio esta totalmente atendida pelo sistema 
+amarela esta mais ou menos 
+vermelho não tem sistema
+com o sinalizador kanban eu consigo ver as oportunidades que eu posso atacar
+
+1.08 parte do archimate
+
+temos montar uma visão rapida, muito resumida, para diagnotico de situação de tecnologia
+
+file> new > empty model > exemplo-3sis
 
 ------------------------------------------------------
 A09
