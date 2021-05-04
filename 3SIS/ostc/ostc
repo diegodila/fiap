@@ -244,6 +244,7 @@ thread em modo users e modo kernel
 A09
 ------------------------------------------------------
 A10
+sinais estamos nos referindo a recursos, e eles são compartilhados com todas threads, 
 ------------------------------------------------------
 A11
 ------------------------------------------------------

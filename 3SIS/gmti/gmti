@@ -273,6 +273,32 @@ Em seguida, propor um escopo de novas soluções.
 
 visao de arquitetura TOGAF 
 painel de portfolio de ti 
+
+togaf-adm representa o ciclo de vida dos trabalhos de arquitetura
+4 pilares, processos, aplicação, dados e infraestrutura
+
+tudo começa na etapa preliminar
+
+visao de arquitetura
+primeira coisa é fazer a arquitetura
+ciclo da arquitetura, 
+a preliminar é uma vez só na vida
+
+primeiro preciso entender o impacto da nova solução 
+e penser o que muda a forma de trabalho 
+c. detalho a parte funcional(banco de dados, arquitetura de software)
+d. dimensiono a Estrutura que eu preciso (calcular a infraestrutura que eu preciso), arquitetura de infra
+e. é pacote dos anteriores que é a visão de soluções 
+e. pacotes de soluções se tornam entregaveis de scrum
+f. plano detalhado do que fazer (tarefas)
+g. implementação da governança(testar e validar aquilo que está pronto, prestar contas, e fazer entregas)
+h. a cada entrega eu tenho que gerenciar mudanças, garantir treinamento para o sistema
+no centro da roda está gestao de requisitos, gravamos tudo nele 
+o togaf chama de continum empresarial
+estão tudo no repo de gestao de requisitos 
+o git é o garantidor do continum empresarial
+
+
 ------------------------------------------------------
 A09
 
