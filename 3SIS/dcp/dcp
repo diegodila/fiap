@@ -276,7 +276,7 @@ class Pessoa {
 A03 StatelessWidget Widget MaterialApp Demais Widgets
 
 StatelessWidget widget sem estado (conteudo dele não sofre alteração) sem estado, stateless O
-statefull (muda o estado)
+stateful (muda o estado)
 stateless tem movimento porem não conseguimos carregar ele (load)
 stateless é tipo de widget 
 materialApp é um widget tambem
@@ -584,90 +584,392 @@ class CardRestaurant extends StatelessWidget {
       )
     );
   }
-
 ------------------------------------------------------
+A04-030521
+
+MaterialApp 
+Scaffold // nao tem visual 
+container // não tem visual
+card 
+column 
+
+Scaffold 
+  implementa a estrutura de layout visual 
+  do design
+  permite organizar melhor os elementos visuais 
 
 
-class Myapp extends StatelessWidget {
-// Primeiro método a ser executado
-    @override 
-    Widget build(BuildContext context) {
-    // Criando o Widget do material App e um texto olá 
-    return MaterialApp(
-    home: Card(
-        child: ListTile(
-            leading: Icon(
-                Icons.restaurant_menu,
-                color: Colors.blue,
-            ),
-            title: Text("9999, St Domingues")
-            subtitle: Text("Vancouver, British Columbia, 9999"),
-            trailing: Text("N4"),
-                Icons.arrow_forward_ios,
-                colors: Colors.redAccent,
-           
-// Importando o Material Design
-import 'package:flutter/material.dart';
+Container é caixa para org melhor os elements, e podemos colocar um filho no container que no caso é o Card ListView é um dos elementos mais usados, no flutter é normal ter um elemento dentro do outro 
+21 linhas para fazer 3 textos como no exemplo abaixo 
 
-// Método para executar o aplicativo
-void main() {
-  runApp(MyApp());
-}
+exemplo de codigo hadoken
 
-// Classe que cria o App
-class MyApp extends StatelessWidget {
-// Primeiro método a ser executado
+children: [
+                  Text(
+                    "Diego",
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  Text(
+                    "José",
+                    style: TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  Text(
+                    "Pedro",
+                    style: TextStyle(
+                      color: Colors.greenAccent,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  Text(
+                    "Mateus",
+                    style: TextStyle(
+                      color: Colors.pinkAccent,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+              )
+
+Metodo vs Class 
+uma classe é um widget no flutter, criamos um widget que é o widget de texto, podemos criar uma classe dentro do mesmo arquivo no flutter 
+o metodo build toda vez que é chamado ele retorna o widget de texto
+
+class TextCustomized extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Criando o Widget do Material App e um Texto Olá
-    return MaterialApp(
-      home: Card(
-        child: ListTile(
-          leading: Icon(
-            Icons.restaurant_menu,
-            color: Colors.blue,
-          ),
-          title: Text("9999, St Domingues"),
-          subtitle: Text("Vancouver, British Columbia, 99999"),
-          trailing:  Icon(
-            Icons.arrow_forward_ios,
-            color: Colors.redAccent,
-          ),
-        ), // Text
-      ), // Card
-    ); // MaterialApp
-  }
-}
-
-------------------------------------------------------
-A06-070421
-
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return Text(
+      "Mateus",
+      style: TextStyle(
+        color: Colors.pinkAccent,
+        fontSize: 30,
+        fontStyle: FontStyle.italic,
       ),
-      home: null,
     );
   }
 }
 
+//nesse caso precisamos fazer ele ser dinamico,
+
+class TextCustomized extends StatelessWidget {
+  String value;
+
+  TextCustomized(this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      value,
+      style: TextStyle(
+        color: Colors.pinkAccent,
+        fontSize: 30,
+        fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+}
+
+quando queremos mudar o valor, no flutter nao temos geters and seters 
+
+void setValue(String content){
+  value = content;
+}
+quando o elemento é stateLess uma vez renderizado ele não vai ser mais alterado, stateless estamos trabalhando com a memoria visual, 
+
+então umas das formas de refatorar o cod, é construindo uma classe que extende statelessWidget, podendo usar ele como um proprio widget do flutter como no cod abaixo 
+
+lass TextCustomized extends StatelessWidget {
+  String value;
+
+  TextCustomized(this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      value,
+      style: TextStyle(
+        color: Colors.pinkAccent,
+        fontSize: 30,
+        fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+}
+
+function(método)
+é uma outra forma de refatorar o cod
+então podemos criar um método dentro da classe Myapp(principal até o momento) 
+
+Widget textBox(String param) {
+    return Text(
+      param,
+      style: TextStyle(
+        color: Colors.deepOrangeAccent,
+        fontSize: 30,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.w100,
+      ),
+    );
+  }
+}
+
+então quando eu uso o método ou uma classe para refatorar o codigo. 
+QUANDO FALAMOS DE WIDGET NA CLASSE, TEMOS APENAS UM MÉTODO EM TODA A  CLASSE, O MÉTODO BUILD. Se quisermos ter mais métodos teriamos que criar outra classe, ou colocando mais parametros na construção daquele widget
+
+CLASSE x METODO QUANDO USAR????
+a classe é util para fazer reuso, pois conseguimos utilizar em varias telas. Então quando queremos usar uma tela (widget) em varios lugares do app, usamos uma classe
+
+o metodo serve só para usar dentro daquele escopo, até porque ele fica no escopo daquela determinada classe onde o método se encontra. Então quando temos uma tela, e queremos diminuir o cod, fazemos a refatoração ali, para um bloco de metodo para diminuir e organizar 
+
+podemos selecionar o Text e fazer o refactor, temos 3 tipos de extração, e extraimos o texto para um metodo, ou pra uma classe
 
 
-//StatefulWidget 
-//create 
+------------------------------------------------------
+A05-040521
+
+o hotreload funciona quando eu salvo meu arquivo 
+
+crtl + s (hotreload)
+quando temos mudanças muito grandes o hotrelod não funciona
+o botao restart restarta a aplicação do zero,
+
+aprofundamento do Scaffold
+stateful Widget // mudança de patamar
+
+Componentes MaterialApp
+
+Scaffold implementa a estrutura de laoyout visual
+
+dentro do MaterialApp o elemento principal vai ser o Scaffold
+
+o esqueleto do Scaffold 
+
+Scaffold(
+        appBar: null,
+        body: null,
+        floatingActionButton: null,
+        drawer: null,
+        persistentFooterButtons: [],
+        bottomNavigationBar: null,
+        endDrawer: null,
+      ),
+
+os demais widgets são widgets de visualização do usuario
+existem duas maneiras de codar
+
+criando o metodo 
+Widget _appBar() {
+    return AppBar(
+      title: Text('Diego Scaffold'),
+    );
+  }
+
+ou usando atalho
+PARA PENSAR, QUANDO IMPORTAMOS UMA CLASSE, CARREGAMOS OS METODOS DELES SEM MESMO ESTAREM INSTACIADOS. IGUAL NO FLUTTER?
+
+FloatingActionButton
+no atributo onPressed aceita uma função como parametro
+e podemos fazer uma função anonima como abaixo 
+
+FloatingActionButton _floatingActionButton() {
+    return FloatingActionButton(
+      elevation: 10,
+      child: Icon(Icons.add),
+      onPressed: () {
+        print('_floatingActionButton');
+      },
+    );
+  }
+
+dentro do onpressed iremos programar coisas mais complexas 
+quando retornamos um array o retorno dele vira uma List de Widgets 
+
+List<Widget> _persistentFooterButtons() {
+    return [
+        RaisedButton(
+          elevation: 10.0,
+          color: Colors.green,
+          child: Icon(Icons.add),
+          onPressed: () {
+            print('+');
+          },
+        ),
+        RaisedButton(
+          elevation: 10.0,
+          color: Colors.red,
+          child: Icon(Icons.remove_circle),
+          onPressed: () {
+            print('+');
+          },
+        ),
+      ];
+  }
+
+para pensar: QUANDO IMPORTAMOS UMA CLASSE, PODEMOS UTILIZAR OS METODOS ESTATICOS DELA???
+
+
+currentIndex: 0, nos fala qual botão que está selecionado na barra de navegação
+items: [] os itens de opção da barra de navegação
+
+bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 1,
+          fixedColor: Colors.teal,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              title: Text('Search'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_box),
+              title: Text('Add'),
+            ),
+          ],
+        ),
+o currentIndex representa o array de itens, selecionado o atual
+
+eu não tenho eventos nos botões eu tenho eventos na minha barra de navegação como um todo, como descrito abaixo
+onTap é cara que recebe o click na barra de navegação 
+BottomNavigationBar(), eu sei o item que eu cliquei pelo parametro que é passado pelo value
+quando queremos navegar pelas telas podemos fazer uma condicional no onTap, ele aceita uma função 
+
+o ontap é executado quando eu toco o botão 
+o onpressed é quando eu toco e solto do botao
+
+
+ BottomNavigationBar(
+          currentIndex: 1,
+          fixedColor: Colors.teal,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              title: Text('Search'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_box),
+              title: Text('Add'),
+            ),
+          ],
+          onTap: (value) {
+            print('Botão clicado $value');
+          },
+        )
+
+para estudar o metodo drawer
+
+STATELESSWIDGET NAO ALTERA, NÃO MUDA O QUE FOI RENDERIZADO UMA VEZ, NÃO RECEBE MAIS ITENS
+
+STATEFUL COMPONENTES QUE POSSUEM ESTADO
+
+StatelessWidget flutter logo, fica ate o final da vida
+
+statefulwidget galeria de fotos (conforme eu tiro uma foto eu vou aumentando ou diminuindo)
+precisamos fazer com que ele se atualize conforme a ação do usuário
+instagram (quando puxamos pra baixo ele atualiza o history)
+
+como criar um statefulwidget?
+no statelessWidget (minhaclasse extends StatelessWidget e metodo build)
+
+no STATEFUL SEMPRE SÃO DUAS CLASSES PARA CRIAR ELE 
+a classe StatefulWidget e a State
+se tentarmos fazer na mão da pau 
+pq uma depende da outra 
+
+criamos a classe StatefulWidget e somos obrigados a criar o metodo createState(), só que esse metod ele vai retornar a classe State 
+
+a minha classe StatefulWidget RETORNA minha classe State
+eu uso a stateful, para instanciar a pagina, para fazer uma relação com ela 
+
+Meus elementos graficos eu codifico na classe State
+e ela tem um metodo build
+
+o ponto mais importante do StatefulWidget é metodo setState() {}, ele notifica o app que algum obj foi alterado, quando eu quero que algo mude na tela eu chamo o metodo setState()
+
+setState() é quando eu preciso mudar o estado
+PARA APRENDER:quando que colocamos uma função sem ()
+PARA APRENDER: metodos que retorno classe
+
+o statelessWidget não permite que mude a tela, sem estado (travado), renderizou uma vez, ele só sai ate sair da memória
+
+é melhor criar tudo como stateful? tem coisas que não precisamos alterar nunca, e usando o stateful estarei usando recurso que não vou utilizar, deixando o app um pouco mais parrudo
+
+void _incrementCounter() {
+    setState(() {
+      _counter++;
+      print("Contador $_counter");
+    });
+  }
+
+o setState notifica a tela dizendo que ela sofreu uma alteração e quando ele notifica, o metodo build é recarregado, dando então dinamismo a tela
+sendo o metodo build reexcutado, ele vai renderizando suavemente o metodo build, não dando pra perceber a mudança do conteudo da pagina
+
+o problema que podemos ter com estado, é executar o metodo build varias vezes, tendo ele que reconstruir varios componentes (Scaffold, AppBar, Column...)
+
+
+------------------------------------------------------
+A06-040521 LISTVIEW VSCODE
+
+nac projeto, ele pede um pouco a mais do que ele pediu
+no projeto ele pedi coisas a mais, ele vai pedir coisas como visual, app de raças de cachorro, pegar o modelo de aula
+
+conteudo da aula é os segredos do Flavio
+
+// StatefulWidget
+//create
 //
-//
+//State<Class-StatefulWidget>
+//build
+
+como construir os apps, com elementos visuais MaterialApp dentro dele o Scaffold
+o Scaffold é utilizado para organizar as coisas
+
+o ListView lembra o Column, sendo o elemento para empilhar os elementos 
+
+Column > não conseguimos fazer associação de dados, com cargas automaticas ou dinamicas de dados.
+
+ListView > pode ser dinamica 
+children é uma coleção de obj
+o ListView ja tem o Scroll automatico
+
+digitar stf cria o ful 
+quando clicamos no botao do flutter conseguimos saber a composição dos widgets
+
+new ListTile(
+          leading: null,
+          trailing: null,
+          title: null,
+          subtitle: null,
+        )
+
+todos os parametros que passamos são do constructor
+
+subtitle: LinearProgressIndicator(
+            backgroundColor: Colors.redAccent,
+            valueColor:
+                AlwaysStoppedAnimation(Colors.greenAccent), //cor preenchida
+            value: 0.25, //quanto que a barra progrediu
+          ),
+
+para lembrar: podemos instanciar um obj, sem guardar em uma variavel, e no flutter não precisamos do new
+------------------------------------------------------
+A07-050521 Estrutura do Projeto, ListView Builder
+
 
 ------------------------------------------------------
 ------------------------------------------------------
@@ -683,23 +985,4 @@ class MyApp extends StatelessWidget {
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
-------------------------------------------------------
+
