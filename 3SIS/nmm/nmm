@@ -431,6 +431,92 @@ router> enable configure terminal
 router>dhcp pool rede
 
 ------------------------------------------------------
+A09-050521 
+o celular está programado para fazer uma requisição dhcp
+acess point não está configurado como roteador 
+acess point fica a nivel fisico, ele propoga mais broadcast que o suite 
+18:15 temos apenas um dominio de broadcast 
+as redes crescem e os broadcast vão se espalhando pela rede
+acontece de terem invasores do lado de fora das empresas
+acess point libera acesso para dispositivos da rede
+umas das recomendações principais é criar uma rede para acess point
+é possivel eu quebrar em quantas redes eu quiser, 
+conseguimos isolar a rede e criar dominios de broadcast menores, sem gastar nenhum centavo, apenas realizando configurações.
+
+Conseguimos realizar configurações avançadas para melhorar desempenho e segurança
+
+todo mundo na mesma rede acarreta em problemas de segurança e desempenho
+
+o jeito é quebrar as redes, em redes virtuais VLAN
+podemos construir uma rede separada para o professor
+
+30:00
+para o equipamento do lab acessar o prof, precisara ir para switch e roteador e depois chegar até o professor
+
+toda vez que compramos um switch por padrão todas as interfaces do switchs já estao na vlan default
+
+VLAN podemos configurar vlan por endereçamento ip, 
+podemos pegar o switch, como se fosse uma serra e quebrar em switchs menores, 
+pegamos um switchs fisicos e quebramos em menores
+quebramos o switchs em 3 redes menores
+vlan por portas no switch, quebrando em switchs menores
+
+precisamos saber quais as interfaces do switchs para fazer as conexoes vlan, por padrão todas as interfaces vem config na vlan por default
+
+p config switch
+todas as portas do switchs estão no vlan default
+
+criamos todas vlans, mas nenhuma interface ligada a ela, depois precisamos distribuir as interfaces entre as vlans
+
+
+>enable
+>configure terminal
+>show vlan //mostra as vlans configuradas
+>vlan 2 // criamos a vlan2 
+>name lab2 // dar o nome da vlan2
+>exit
+>vlan 3
+>name lab3 
+>vlan 4
+>name adm 
+>configure terminal
+>interface fa0/1
+>switch mode accept // preparando a interface para ser migrada para vlan
+>switchport access vlan 2 // movendo a interface 01 para uma vlan 2
+>inteface fa0/2
+>switchport mode access
+>switchport acess vlan 2
+>configure terminal 
+>inteface range fa0/8-9 // migramos as 2 interfaces para vlan3
+>switchport mode acess 
+>switchport acess vlan 3
+>inteface range fa0/17-18
+>switchport mode acess
+>switchport acess vlan 4
+>exit
+>
+>
+>show vlan // mostra todas as configs da vlan
+
+cada vlan vai precisar de um end de rede exclusivo para ela 
+
+1:20
+vlan1 
+rede: 192.168.2.0
+mask:255.255.255.0
+
+vlan3
+rede: 192.168.3.0
+mask:255.255.255.0
+
+vlan4
+rede: 192.168.4.0
+mask:255.255.255.0
+
+vlan2
+
+rede: 192.168.2.2-3
+gateway:192.168.2.1
 
 ------------------------------------------------------
 
