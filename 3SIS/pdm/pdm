@@ -480,5 +480,324 @@ v_emp_id number(5) default 3;
 ----------------------------------------------------
 A10
 ----------------------------------------------------
-A11
+A11 cap07
+
+precisamos tratar esses eventos com cursores e precisamos de laço para o cursor 
+o for é especial no plsql, reduzindo linhas de codigo
+while é quando eu não determino a quantidade de iterações, while(precisa de uma codição verdade)
+basic loop (loop - while). quando temos um unicio e fim bem definidos podemos usar qualquer um
+
+statements 
+
+--CONDICIONAIS
+DECLARE
+  myage number:=31;
+BEGIN
+  IF myage < 11
+  THEN
+    DBMS_OUTPUT.PUT_LINE(' I am a child ');  
+  END IF;
+END;
+/
+
+SET SERVEROUTPUT ONDECLARE
+myage number:=31;
+BEGIN
+IF myage < 11
+ THEN
+    DBMS_OUTPUT.PUT_LINE(' I am a child ');  
+ ELSE
+    DBMS_OUTPUT.PUT_LINE(' I am not a child ');
+END IF;
+END;
+/
+
+
+DECLARE
+myage number:=31;
+BEGIN
+IF myage < 11
+ THEN
+       DBMS_OUTPUT.PUT_LINE(' I am a child ');
+   ELSIF myage < 20 
+     THEN 
+       DBMS_OUTPUT.PUT_LINE(' I am young ');
+   ELSIF myage < 30
+     THEN
+       DBMS_OUTPUT.PUT_LINE(' I am in my twenties');
+   ELSIF myage < 40
+     THEN
+       DBMS_OUTPUT.PUT_LINE(' I am in my thirties');
+ ELSE
+    DBMS_OUTPUT.PUT_LINE(' I am always young ');
+END IF;
+END;
+/
+
+
+DECLARE
+myage number; -- aqui é nulo
+BEGIN
+IF myage < 11 -- falso (qualquer coisa com nulo é falso)
+ THEN
+    DBMS_OUTPUT.PUT_LINE(' I am a child ');  
+ ELSE
+    DBMS_OUTPUT.PUT_LINE(' I am not a child ');
+END IF;
+END;
+/
+/*
+qualquer condição com nulo é falso
+*/
+
+SET SERVEROUTPUT ONSET VERIFY OFF
+DECLARE
+   grade CHAR(1) := UPPER('&grade');
+   appraisal VARCHAR2(20);
+BEGIN
+   appraisal := 
+      CASE grade
+         WHEN 'A' THEN 'Excellent'
+         WHEN 'B' THEN 'Very Good'
+         WHEN 'C' THEN 'Good'
+         ELSE 'No such grade'
+      END;
+DBMS_OUTPUT.PUT_LINE ('Grade: '|| grade || ' Appraisal ' || appraisal);
+END;
+/
+/*
+& comercial abre a caixinha
+CASE é um seletor, nesse caso acima ele 
+END, SEM END CASE; 
+atribuimos um valor a uma variavel de acordo com uma condição
+*/
+
+
+DECLARE
+   grade CHAR(1) := UPPER('&grade');
+   appraisal VARCHAR2(20);
+BEGIN
+    appraisal := 
+     CASE 
+         WHEN grade = 'A' THEN 'Excellent'
+         WHEN grade IN ('B','C') THEN 'Good'          
+         ELSE 'No such grade'   
+     END;
+   DBMS_OUTPUT.PUT_LINE ('Grade: '|| grade || ' Appraisal ' || appraisal);
+END;
+/
+/*
+podemos testar em uma lista, utilizando o operador IN
+*/
+
+DECLARE
+   deptid NUMBER;
+   deptname VARCHAR2(20);
+   emps NUMBER;
+   mngid NUMBER:= 108;   
+BEGIN
+  CASE  mngid
+     WHEN  108 THEN 
+      SELECT department_id, department_name 
+      INTO deptid, deptname  --100 finance
+      FROM departments 
+      WHERE manager_id=108;
+
+      SELECT count(*) 
+      INTO emps FROM employees 
+      WHERE department_id=deptid;
+   WHEN  200 THEN 
+      DBMS_OUTPUT.put_line('Exemplo');
+ END CASE;
+DBMS_OUTPUT.PUT_LINE ('You are working in the '|| deptname||' department. 
+                      There are '||emps ||' employees in this department');
+END;
+/
+
+/*
+na instrução case end case. na expressão com end
+
+*/
+
+
+-- LAÇOS
+DECLARE
+  countryid    locations.country_id%TYPE := 'CA';
+  loc_id       locations.location_id%TYPE;
+  counter		  NUMBER(2) := 1;
+  new_city     locations.city%TYPE := 'Montreal';
+BEGIN
+  SELECT MAX(location_id) INTO loc_id FROM locations
+  WHERE country_id = countryid;
+  LOOP
+    INSERT INTO locations(location_id, city, country_id)   
+    VALUES((loc_id + counter), new_city, countryid);
+    counter := counter + 1;
+    EXIT WHEN counter > 3;
+  END LOOP;
+END;
+/
+/*
+precisamos de uma condição exit, para finalizar o laço
+basic loop pelo menos uma vez ele executa, todo laço fecha com end loop
+
+country id = ca
+
+loc_id = null 
+
+counter = 1 
+
+new_city = Montreal
+
+o incremento é o incremento raiz := + 1
+
+
+*/
+
+
+DECLARE
+  countryid   locations.country_id%TYPE := 'CA';
+  loc_id      locations.location_id%TYPE;
+  new_city    locations.city%TYPE := 'Montreal';
+  counter     NUMBER := 1;
+BEGIN
+  SELECT MAX(location_id) INTO loc_id FROM locations
+  WHERE country_id = countryid;
+  WHILE counter <= 3 LOOP
+    INSERT INTO locations(location_id, city, country_id)   
+    VALUES((loc_id + counter), new_city, countryid);
+    counter := counter + 1;
+  END LOOP;
+END;
+/
+/*
+ele ja entra em laço por conta do while
+
+*/
+
+DECLARE
+  countryid   locations.country_id%TYPE := 'CA';
+  loc_id      locations.location_id%TYPE;
+  new_city    locations.city%TYPE := 'Montreal';
+BEGIN
+  SELECT MAX(location_id) INTO loc_id 
+    FROM locations
+    WHERE country_id = countryid;
+  FOR i IN 1..3 LOOP
+    INSERT INTO locations(location_id, city, country_id)   
+    VALUES((loc_id + i), new_city, countryid );
+  END LOOP;
+END;
+/
+/*
+o contador é declarado implicitamente 
+for i IN 1..3 LOOP -- VARIAVEL DECLARADA IMPLICITAMENTE
+TODO LAÇO ENCERRA COM END LOOP
+
+
+NÃO FUNCIONA POIS É O MENOR VALOR COM O MAIOR VALOR
+BEGIN 
+    FOR I IN 10..1 LOOP 
+        DBMS_OUTPUT.PUT_LINE(I);
+    END LOOP;
+END;
+
+BEGIN 
+    FOR I IN REVERSE 1..10 LOOP 
+        DBMS_OUTPUT.PUT_LINE(I);
+    END LOOP;
+END;
+
+BEGIN 
+    FOR I IN REVERSE 1..10 LOOP 
+        DBMS_OUTPUT.PUT_LINE(I);
+    END LOOP;
+END;
+
+DECLARE 
+    CONTADOR CHAR(1) := 'A';
+BEGIN 
+    FOR CONTADOR IN REVERSE 1..10 LOOP 
+        DBMS_OUTPUT.PUT_LINE(CONTADOR);
+    END LOOP;
+END;
+FORA DO LAÇO VALENDO 'A', SÓ EXISTE NO CONTEXTO DO LAÇO, QUANDO COLOCAMOS ELA COM INDICE
+
+
+DECLARE 
+    VI NUMBER(2) := 1;
+    VF NUMBER(4,2) := 10;
+BEGIN 
+    FOR CONTADOR IN REVERSE 1..VF LOOP 
+        DBMS_OUTPUT.PUT_LINE(CONTADOR);
+    END LOOP;
+END;
+
+DECLARE 
+    VI NUMBER(2) := 1.7;
+    VF NUMBER(4,2) := 10.2;
+BEGIN 
+    FOR CONTADOR IN REVERSE 1..VF LOOP 
+        DBMS_OUTPUT.PUT_LINE(CONTADOR);
+    END LOOP;
+END;
+
+--NUMEROS PARES COM WHILE 
+DECLARE 
+    VI NUMBER(2) := 1;
+    VF NUMBER(4,2) := 10;
+    V_COUNT INT :=2;
+BEGIN 
+    WHILE V_COUNT <= 10 LOOP 
+        DBMS_OUTPUT.PUT_LINE(V_COUNT);
+        V_COUNT := V_COUNT + 2;
+    END LOOP;
+END;
+
+
+DECLARE 
+    VI NUMBER(2) := 1;
+    VF NUMBER(4,2) := 10;
+BEGIN 
+    FOR V_COUNT IN REVERSE VI..VF LOOP 
+    -- IF MOD(V_COUNT,2) = 0 THEN
+        IF V_COUNT MOD 2 = 0 THEN
+            DBMS_OUTPUT.PUT_LINE(V_COUNT);
+        END IF;
+    END LOOP;
+END;
+
+DIFERENTE É AND, O OR 
+
+DECLARE 
+    VI NUMBER(2) := 1;
+    VF NUMBER(4,2) := 10;
+BEGIN 
+    FOR V_COUNT IN REVERSE VI..VF LOOP 
+    -- IF MOD(V_COUNT,2) = 0 THEN
+    -- IF V_COUNT MOD 2 = 0 THEN
+        IF V_COUNT <> 6 AND V_COUNT <> 8 THEN
+            DBMS_OUTPUT.PUT_LINE(V_COUNT);
+            INSERT INTO MESSAGES
+
+        END IF;
+    END LOOP;
+END;
+
+01:25 assistir
+
+drop table emp;
+create table emp
+as select * from employees;
+
+alter table emp
+add stars varchar(50);
+
+
+select last, salary,starts
+from emp 
+where emp 
+where employee_id in (100,107,170);
+*/
+
 ----------------------------------------------------
