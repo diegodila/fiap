@@ -21,7 +21,7 @@ get / não tão seguro
 gerar um arquivo war 
 ou .jar 
 clicar em deploy 
-lib fica todas as depedencias
+lib fica todas as dependencias
 
 
 onde muda a porta do tomcat é no file server
@@ -175,6 +175,54 @@ rel="stylesheet" />
 <script th:src="@{​​​​​/webjars/bootstrap/js/bootstrap.min.js}​​​​​"></script>
 </body>
 </html>
+
+
+a primeira action request mapping  @GetMapping só serve para abrir o html, depois pelo botão atraves do post passamos os dados para uma outra view 
+então no form html inicial tem uma action que tem o path e o method dela
+esse 	@PostMapping("/salve") escuta esse html 
+
+e depois o metodo save salva no Jpa 	repository.save(servicemodel);
+
+podemos usar duas nomeclaturas para a Model, tanto Entity quanto Models
+
+a partir do momento que colocamos o get mapping ele começa a escutar aquele contexto
+@GetMapping("/adding")
+
+o application.properties mudamos a port que o servidor esta escutando
+
+para add o bootstrap precisamos adicionar no pom as dependencias
+
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>jquery</artifactId>
+    <version>3.6.0</version>
+</dependency>
+
+
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>bootstrap</artifactId>
+    <version>5.0.0-beta3</version>
+</dependency>
+
+    
+<dependency>
+  <groupId>org.webjars</groupId>
+  <artifactId>webjars-locator-core</artifactId>
+  <version>0.46</version>
+</dependency>
+
+ai no final do body antes de FECHAR, temos que colocar as dependencias do js
+
+<script th:src="@{​​​​​/webjars/jquery/jquery.min.js}​​​​​"></script>
+<script th:src="@{​​​​​/webjars/bootstrap/js/bootstrap.min.js}​​​​​"></script>
+
+SE COLOCARMOS SÓ BARRA NO GETMAPPING CONSEGUIMOS ACESSAR A PAGINA SEM DIRECIONAR UM PATH PARA O localhost
+
+passamos o path para o constructor do model and view
+		ModelAndView view = new ModelAndView("static/sucess");
+
+o repository.findAll(); devolve uma lista de convidados Entity
 
 
 ------------------------------------------------------

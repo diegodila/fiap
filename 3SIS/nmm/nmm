@@ -519,7 +519,115 @@ rede: 192.168.2.2-3
 gateway:192.168.2.1
 
 ------------------------------------------------------
+A10
 
+agrupa
+19:00 quebramos em 4 redes separadas 
+o roteador vai rotear pacotes entre redes diferentes
+quebrar em dominio de broadcast menores
+para alcanlcar o servidor dhcp, a transmissão se dá via broadcast 
+
+precisamos segmentar essa rede em redes menores
+quebramos o switch, segmentamos ele (verde, azul...)
+ou compro um switch para cada uma dessas redes
+podemos fazer essa alocação por meio de portas
+
+todas as portas do switchs, todas interfaces na vlan 1, default 
+vlan default dos switch, todas as interfaces estão na vlan default
+
+dividimos as redes vlan1, vlan2, vlan3
+
+>
+>
+>
+>
+
+quando isolamos o equipamento em vlan, a rede que está na vlan1 não consegue mais enviar broadcast para ela pois, a vlan foi isolada VLAN2 
+
+interface range fa0/9-fa0/15
+>mode acess
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+
+a requisao broadcast não alcança mais o servidor 
+
+
+mode acesss
+switchport acess vlan4
+
+gateway tem que estar na mesma rede do equipamento 
+quando temos 4 vlans
+temos 1 interface que comporta 1 end ip. Temos que dividir a interface, virtualizando a interface(dividindo em 4 end ip)
+
+router> 
+configuramos o gateway dividindo ele 
+
+configure terminal 
+interface gig0/0 
+ip address 192.186.1.1 255.255.255.0 > igual a um gateway
+
+interface gig0/0.2 --criando uma subinterface
+
+depois temos que associar a interface (sub) a vlan2
+
+encapsulation dotlq 2 > protocolo, habilitamos ele e associamos a vlan
+
+ip address 192.168.2.1 255.255.255.0
+
+interface gig0/0.3 
+encapsulation dotlq 3
+ip address 192.168.1.1 255.255.255.0
+
+interface gig0/0.4 
+encapsulation dotlq 4
+192.169.4.1 255.255.255.0
+
+inteface gig0/0.1 
+encapsulation dotlq 1
+
+configurando um pool dhcp para cada um das 3 redes 
+
+ip dhcp pool lab2 > dando o nome para o pool
+depois eu falo a rede que o pool vai distribuir
+
+network 192.168.2.0 255.255.255.0
+dns-server 8.8.8.8
+
+depois precisamos associar o pool a VLAN2
+default-router 192.168.2.1
+
+ip dhcp pool lab3
+network 192.168.3.0 255.255.255.0
+dns-server 8.8.8.8
+network 192.168.4.0
+
+pegamos 3 servidores dns e configuramos 3 serviços dns lá no roteador e assoaciamos a cada vlan por meio do seu gateway
+
+50:00 
+1:08
+
+quando precisamos associar uma interface a mais de uma vlan(chamamos a interface de tronco)
+interface trunk 
+interface gig0/2
+transformar uma interface em interface tronco para todas as vlans
+configurando o modo trunk
 ------------------------------------------------------
 
 ------------------------------------------------------
