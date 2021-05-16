@@ -224,10 +224,247 @@ passamos o path para o constructor do model and view
 
 o repository.findAll(); devolve uma lista de convidados Entity
 
+para fazer a repository colocamos a classe model dentro do parametro do Jpa, junto com o Long
 
+@Repository
+public interface IT_ServiceRepository extends JpaRepository<IT_ServiceModel, Long>{
+}
+
+Jpa vem pra resolver na questão de persistencia de dados
+depois do findAll do repository temos que guardar esse retorno numa lista do tipo da entidade 
+
+List<ConvidadosEntity> convidados = repository.findAll();
+
+dentro da view podemos adicionar objs que são retornados do repository.findAll()
+passamos uma string e o obj, a string é como se fosse um alias no banco de dados
+a string REPRESENTA O OBJ, 
+é como se o metodo pegasse o obj e jogasse na string para recuperarmos na tela
+é como se fosse um depara
+view.addObject('convidados',convidados)
+
+<body>
+<div class="panel panel-default" style="margin: 10px">
+<div class="panel-heading">
+<h1 class="panel-title">Lista de convidados</h1>
+</div>
+<div class="panel-body">
+<table class="table">
+<thead>
+<tr>
+<th>Nome</th>
+<th>Acompanhantes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>João</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
+
+o obj que passamos para a tela, ele precisa ser iterado pois chega como uma lista de obj, então passamos para thymeleaf um for each. Passamos a lista de obj 
+
+<tr th:each="convidado : ${convidados}">
+<td th:text="${convidado.nome}"></td>
+<td th:text="${convidado.quantidadeAcompanhantes}"></td>
+</tr>
+
+insert into tb_convidados(acompanhante,email,nome)values('3','email@teste.com','fulano')
+
+insert into tb_convidados(acompanhante,email,nome)values('2','email@teste.com','teste')
+
+<form class="form-inline" method="POST" th:object="${convidado}" th:action="@{/convidados}" style="margin: 20px 0">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}" />
+<input type="text" class="form-control" placeholder="E-mail" th:field="*{email}" />
+<input type="text" class="form-control" placeholder="Acompanhantes" th:field="*{acompanhante}"/>
+<button type="submit" class="btn btn-primary">Adicionar</button>
+</div>
+</form>
+
+
+podemos passar um obj vazio para o html, só instanciarmos a Entidade, sem guardar em nenhuma variavel, e passamos como uma string no exemplo acima e no abaixo
+
+view.addObject("objConvidado", new ConvidadosEntity());
+
+capturamos o obj atraves desse form 
+
+<form class="form-inline" method="POST" th:object="${convidado}"  style="margin: 20px 0">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}" />
+<input type="text" class="form-control" placeholder="E-mail" th:field="*{email}" />
+<input type="text" class="form-control" placeholder="Acompanhantes" th:field="*{acompanhante}"/>
+<button type="submit" class="btn btn-primary">Adicionar</button>
+</div>
+</form>
+
+quando colocamos a action como post, chamamos como um Post, ele pede algo na assinatura do método, então podemos ter duas /convidados
+
+quando não passamos nenhum parametro ele chama @GetMapping e não pede nada na assinatura do metodo
+
+quando a gente chama como o method Post no html, precisamos passar o ConvidadosEntity, dai ele pedi os ConvidadosEntity na assinatura do metodo olhe o html abaixo chegando um ConvidadosEntity em um obj vazio do metodo @GetMapping, e logo em seguida passando os campos a serem preenchios, conforme os campos da Entity, depois o form escuta o method=POST e seguida é chamado @PostMapping pedindo um ConvidadosEntity
+
+meus Erros : notation repository, controller, entity
+parametro do metodo que retorna uma model and view,
+notation do
+colocar a dependencia do thymeleaf, ele não roda o html
+
+colocar o link href do bootstrap 
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+
+no repository é uma interface
+acrescentar a notation no Repository
 ------------------------------------------------------
 A06
+o bootstrap acontece por conta dos links no html
 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Cadastro Convidados</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+rel="stylesheet" />
+</head>
+
+<body>
+
+ <div class="container">
+<div class="jumbotron">
+<h1 class="display-4">Lista de convidados</h1>
+</div>
+<div class="card">
+<form class="card-body" method="POST" th:object="${convidado}"
+th:action="@{/convidados}">
+<div class="row">
+<div class="form-group mb-3 col-sm">
+<label for="nome">Nome</label> <input type="text"
+class="form-control mt-3" placeholder="Nome do convidado"
+th:field="*{nome}">
+</div>
+<div class="form-group mb-3 col-sm">
+<label for="email">Email</label> <input type="email"
+class="form-control mt-3" placeholder="E-mail do convidado"
+th:field="*{email}">
+</div>
+<div class="form-group mb-3 col-sm">
+<label for="acompanhate">Acompanhante</label> <input type="text"
+class="form-control mt-3"
+placeholder="quantidade do acompanhante"
+th:field="*{acompanhante}">
+</div>
+</div>
+<button type="submit" class="btn btn-secondary">Adicionar</button>
+</form>
+</div>
+<table class="table" >
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Nome</th>
+<th scope="col">E-mail</th>
+<th scope="col">Acompanhante</th>
+<th scope="col">Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="convidado : ${convidados}">
+<th th:text="${convidado.id}"scope="row"></th>
+<td th:text="${convidado.nome}"></td>
+<td th:text="${convidado.email}"></td>
+<td th:text="${convidado.acompanhante}"></td>
+<td>
+<a th:href="@{/convidados/{id}(id = ${convidado.id})}" class="btn btn-primary">editar</a>
+<a th:href="@{/editar}" class="btn btn-danger">excluir </a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
+
+8:13
+<a th:href="@{/convidados/{id}(id = ${convidado.id})}" class="btn btn-primary">editar</a>
+<a th:href="@{/editar}" class="btn btn-danger">excluir </a>
+
+passamos um path variable dentro da assinatura do metodo, como parametro
+
+    @GetMapping("convidados/{id}")
+    public ModelAndView editar(@PathVariable Long id){
+
+quando passamos o @PathVariable estamos passando uma variavel do path 
+o campo que recebemos do @GetMapping("convidados/{id}) é passando para dentro do metodo como um parametro public ModelAndView editar(@PathVariable Long id)
+
+existe um metodo no Jpa chamado findByID e ele espera um Long, que passado pelo @PathVariable id
+repository.findById(id);
+
+o findByID devolve um optional, e temos que passar um get pra ele pegar o obj do Id, e ele devolve um unico item da base Jpa
+repository.findById(id).get(); 
+
+ConvidadosModel convidadoId = repository.findById(id).get();
+
+ModelAndView é modelo e pagina  e conseguimos inserir obj dentro da pagina
+
+quando damos um submit ele envia o id para o metodo para fazer o update
+
+<form class="card-body" method="POST" th:object="${objConvidadoForm}"
+              th:action="@{/}">
+            <div class="row">
+              <div>
+                <input type="hidden" class"form-control mt-3" placeholder="Nome do Convidado" th:field="*{id}">
+              </div>
+                <div class="form-group mb-3 col-sm">
+                    <label for="nome">Nome</label> <input type="text"
+                                                          class="form-control mt-3" placeholder="Nome do convidado"
+                                                          th:field="*{nome}">
+                </div>
+                <div class="form-group mb-3 col-sm">
+                    <label for="email">Email</label> <input type="email"
+                                                            class="form-control mt-3" placeholder="E-mail do convidado"
+                                                            th:field="*{email}">
+                </div>
+                <div class="form-group mb-3 col-sm">
+                    <label for="acompanhate">Acompanhante</label> <input type="text"
+                                                                         class="form-control mt-3"
+                                                                         placeholder="quantidade do acompanhante"
+                                                                         th:field="*{acompanhante}">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Adicionar</button>
+        </form>
+
+o metodo que faz a busca na base conforme o id que passamos
+quando passamo no html é uma request map
+<a th:href="@{/convidados/{id}(id = ${convidado.id})}" class="btn btn-primary">editar</a>
+
+aqui o id é substituido pelo numero /convidados/{id}
+pelo metodo precisamos receber o parametro que foi passado no html e passamos a notation @PathVariable e o tipo de dado que estamos recebendo
+
+quando retornamos a view com o obj dentro dela
+@GetMapping("/convidados/{id}")
+    public ModelAndView editar(@PathVariable Long id){
+
+        ConvidadosModels objId = repository.findById(id).get();
+        ModelAndView view = new ModelAndView("convidados/index3");
+
+        view.addObject("objId", objId);
+
+        return view;
+    }
 
 ------------------------------------------------------
 A 
