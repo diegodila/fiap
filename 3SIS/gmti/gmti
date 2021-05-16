@@ -345,7 +345,124 @@ com o sinalizador kanban eu consigo ver as oportunidades que eu posso atacar
 
 temos montar uma visão rapida, muito resumida, para diagnotico de situação de tecnologia
 
+Criação do projeto
 file> new > empty model > exemplo-3sis
+até a necessidade tecnologica
+começamos a arquitetura capturando os stakeholders, o que ele quer, onde quer chegar e como medir isso
+
+TOGAF
+do lado esquerdo fica os projetos
+sempre vou ter todos os projetos do ultimo salvamento do projeto
+
+1 
+visao de arquitetura
+do lado direito é a palheta
+os riscos ou divisoes, são pra dividir cada fase
+
+1
+visao de arquitetura(stakeholders)
+
+primeiro quadrado (stakeholders, Presidente da software house) 
+
+2quadrado driver
+(significa o que ele quer buscar, diretriz)
+conhecer os niveis de satisfação dos clientes com o suporte 
+
+associamos os elementos 
+medic conector 
+ligamos o presidente e conhecer niveis
+assoaciate to with
+podemos fazer o diagrama com inteiro com asss simples
+
+3quadrado assesment (para conhecer os niveis)
+forma como ele vai conhecer os clientes (como pretende)
+(registrar a satisfação dos clientes por avalações)
+
+
+ligamos o driver com a satisfação dos clientes
+assoaciate to with 
+associação simples
+
+<**
+4precisamos começar a colocar o objetivos e requisistos de desenvolvimento 
+
+parte cinza a interpretação do profissional de ti o que ele precisa fazer. (4quadrado alvo chama go
+go são obj que eu preciso alcançar), eu como tecnologia o que eu quero alcançar (registrar as ocorrencias em sistema de informação computacional)
+
+alvo, 5quadrado 
+(preciso garantir meio do cliente atribuir uma nota de atendimento) 
+
+então temos 2 obj
+precisamos movimentar e solucionar esse chamado
+
+alvo 6 quadrado.
+(computar o tempo de atendimento em função das ações realizadas)
+
+todas as 3 coisas para saber a satisfação do cliente
+
+fazemos no magic conector, associamos com o registrar a satisfação dos clientes por avaliações 
+no conector, influencia no resultado, usamos o conector de influenciar 
+ligamos os 3 quadrados ao registrar a ...
+
+
+7 quadrado (regra ou alerta chamados(principios))
+100% dos chamados precisam estar no sistema
+colocamos associados com registrar as ocorrencias em um sistema ... 
+
+8 quadrado (regra)
+(O tempo de atendimento é a diferençça entra a data/hora de registro e a data/hora de solução com o ok do cliente)
+associamos com o computar o tempo de atendimento em função...
+
+9 quadrado(regra)
+(a avaliação é uma opção do cliente)
+associamos com o garantir um meio do cliente atribuir...
+**>
+
+Continuando a Visão de arquitetura
+Lista de requisitos
+
+<***
+10 losango 
+1(requirement)
+(registrar dados basicos de um chamado)
+2(constraint)
+(dados basicos são: ID do cliente, Cargo do cliente, descrição do problema, Data e hora de registro)
+
+associamos o 1 e o 2 (requisito e regra)
+composed of (composto de..)
+relação de composição
+
+3(requirement)
+(registrar transferencia de chamados entre analistas de suporte)
+
+4(constraint)
+(dados na transferencia do chamado:ID do analista origem, ID do analista destino, data e hora)
+associamos o 3 e 4 (requisito e regra)
+relação de composição
+
+5(requirement)
+(registrar solução)
+6(constraint)
+Registrar descriação da solução e data e hora
+composição 
+
+7(requirement)
+(registrar avaliação do cliente)
+8(constraint)
+(Notas somente 2 insatisfeito 2- satisfeito)
+associação simples
+
+depois temos que ligar a lista de requisitos com os objetivos fechando a visao de arquitetura 
+***>
+
+(registrar dados basicos de um chamado) (associa com)
+liga com (registrar as ocorrencias em sistema de informação computacional)
+
+(registrar transferencia de chamados entre analistas de suporte) associa com (computar o tempo de atendimento em função das ações realizadas)
+
+(registrar solução) associa com (computar o tempo de atendimento em função das ações realizadas)
+
+(registrar avaliação do cliente) associa com (preciso garantir meio do cliente atribuir uma nota de atendimento) 
 
 ------------------------------------------------------
 A09
