@@ -759,6 +759,49 @@ SCRUM
 1:02
 ------------------------------------------------------
 A12
+
+Histórias de usuário: Épicos/Features/Backlog itens
+
+Front End de cadastramento de chamado
+
+O analista de suporte precisa documentar e armazenar no sistema de informação os dados referentes a uma ocorrência técnica para qual o cliente demanda atendimento. O registro é fundamental para que se possa proceder o encaminhamento da solução.O registro deve conter: O número do contrato do cliente, o nome da pessoa que entrou em contato, o telefone e o e-mail dessa pessoa.
+O analista vai informar o número do contrato do cliente e o sistema deve pesquisar os dados de contato do cliente (nome da pessoa que entrou em contato, o telefone e o e-mail dessa pessoa), se o sistema não trouxer os dados do cliente o atendimento é interrompido porque o contrato não está vigente.
+Se o sistema trouxer os dados do cliente, o analista deve informar a descrição do problema que o cliente está percebendo.
+O sistema deve gerar sequencialmente e automaticamente um número de protocolo para esta ocorrência e esse número deve ser guardado no sistema junto com os demais dados informados, mais a data e hora do registro.Ao final do processo um número de protocolo será gerado e exibido na tela. O mesmo deve ser encaminhado por e-mail para o cliente.
+
+Back end de recuperação de dados de contrato
+
+Quando um analista de suporte informar um número de contrato no front end do registro de chamada, esse dado será enviado para este back end, então o software deve fazer uma pesquisa na base de dados de cadastros de contrato pelo número do protocolo para encontrar e retornar o nome, e-mail e o telefone de contato do cliente. 
+
+Transação de back end desenvolvida em Java acessando um banco de dados Oracle para pesquisa dos dados de contrato.Se o software encontrar o registro retorna os dados conforme descrição, caso contrário retorna nulo em todos os dados.
+
+Após documentar todos itens de backlog de produto, precisamos apontar o grau de dificuldade para fazer cada um.
+
+Poker scrum card
+
+configure o deck de cartas para Fibonacci
+    
+Para Épicos, usar 55, 89, 144
+
+Para Feature, usar 13, 21, 34
+
+Para Item de backlog de produto, usar 3, 5, 8
+
+Para tarefas de Sprint, usar 0, 1, 2
+
+Nota menor indica que o item é simples
+
+Nota maior indica que ´é complexo
+
+Nota do meio, indica que a dificuldade é média
+
+EFFORT = VALOR COMBINADO
+
+Depois de pontuados os esforços, devemos fazer o PLANO DE RELEASE
+
+Para fazer isso, defina com a equipe e o PO, quanto tempo dura uma Sprint (todas Sprints terão que manter o mesmo limite de tempo).
+
+
 ------------------------------------------------------
 A13
 ------------------------------------------------------

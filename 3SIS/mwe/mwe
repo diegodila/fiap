@@ -463,11 +463,21 @@ quando retornamos a view com o obj dentro dela
 
         view.addObject("objId", objId);
 
-        return view;
+        retur n view;
     }
 
 ------------------------------------------------------
-A 
+A08 180521
+
+JpaRepository ele localiza o banco atraves do application properties, pegando chave/valor
+
+nessa aula fazemos uma refactor
+nesse caso, não podemos expor coisas do bancos
+não podemos expor coisas do banco no controller
+na entidade temos o nome da tabela, que não podemos expor
+não podemos chamar a repository direto, nesse caso temos que implementar a camada service, cuidando da intermedio da controller e do repository. Chamamos a service e depois a repository
+dto vai representar o obj que esta na tela
+
 ------------------------------------------------------
 A 
 ------------------------------------------------------
