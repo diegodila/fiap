@@ -478,6 +478,66 @@ na entidade temos o nome da tabela, que não podemos expor
 não podemos chamar a repository direto, nesse caso temos que implementar a camada service, cuidando da intermedio da controller e do repository. Chamamos a service e depois a repository
 dto vai representar o obj que esta na tela
 
+temos mais um pacote que faz o intermedio entre o controller e a repository
+
+>criamo a camada service como pacote e depois criamos um contrato (interface java) > ConvidadosService (interface(contrato)) 
+a interface não faz a implementação, ela só diz quais metodos que serão implementados, e quem implementa a interface é que faz a implementação desse metodos (sobreescrevendo eles)
+
+>ConvidadosService > ConvidadosDto salvarConvidados(ConvidadosDto convidadoDto);
+
+dto faz interface entre controller e a entidade
+>criamos uma pacote dto, a classe ConvidadosDto
+tudo isso para não expor a entidade na camada de controller
+
+depois transformamos o dto em uma entidade 
+
+quem quiser ser um ConvidadosService tera que implementar os metodos dele
+
+depois dos dtos, temos que implementar os getters and setters
+
+temos o metodo listar na controller 
+fazer a assinatura dele no ConvidadosService
+>listaConvidados() e ele devolve uma lista de ConvidadosEntity, então colocamos
+List<ConvidadosDto> listarConvidados(), pois não queremos expor os ConvidadosEntity (Entidade) tudo isso na interface. colocamos apenas a assinatura dos metodos
+
+depois colocamos na interface ConvidadosService o metodo editarConvidados() que está na controller. 
+ConvidadosDto editarConvidados(Long id);
+
+depois falta o excluir da camada controller
+void excluirConvidados(Long id);
+
+basicamente trocamos toda a exposição da camada controller, onde os metodos retornam a entidade
+
+depois da service é importante nos criarmos um pacote impl com a classe ConvidadosServiceImpl 
+
+nessa classe fazemos o implements da interface
+
+public class ConvidadosServiceImpl implements ConvidadosService {}
+
+nele precisamos implementar todos os metodos da interface pai, nele fazemos toda implementação dos metodos
+
+na classe ConvidadosServiceImpl temos que colocar o @Service, dizendo que aquela classe é uma service
+
+não queremos que a classe controller tenha chamada para a repository, chamamos a repository na service
+
+@Autowired 
+ConvidadosRepository repository;
+
+depois temos que parsear o dto para entity
+para fazermos o metodo :
+
+@Override
+	public ConvidadosDto salvarConvidados(ConvidadosDto convidadoDto) {		
+		ConvidadosEntity entity = convidadoDto.toEntity();		
+		entity =  repository.save(entity);
+		ConvidadosDto convidadosDto = fromConvidadosEntityToConvidadosDto(entity);
+		return convidadosDto;
+	}
+
+como o metodo convidadoDto.toEntity() // temos a transformação de dto para entity
+a conversão do dto para um entidade
+
+1:02
 ------------------------------------------------------
 A 
 ------------------------------------------------------
