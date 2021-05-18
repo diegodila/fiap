@@ -467,6 +467,158 @@ liga com (registrar as ocorrencias em sistema de informação computacional)
 ------------------------------------------------------
 A09
 
+fase arquitetura (visao da arquitetura)
+eu quero construir um visao do que eu preciso atacar 
+entendimento do que quer o stakeholders
+matriz onde tem os departamento da empresa
+coluna com nome dos sistema
+
+archimate permite fazer a arquitetura togaf
+visao de arq (visao de escopo)
+stakeholders principais interessados (presidente da empresa)
+
+driver (o que ele quer)
+lupa(como medir)
+
+3 etapas (quem quer(stakeholders), o que ele quer(conhecer os niveis de satisfação...), como ele quer(registar a satisfação dos clientes...))
+
+em seguida definimos obj para nos de sistemas, o que temos para oferecer para nossos stakeholders
+
+alerta sao coisas que eu não posso esquecer aliados com os obj
+
+depois tentamos identificar os requisitos dos software
+focamos sp nos requisitos do atendimento em si
+depois dos requisitos associamos uma constraint
+registro contem constraint
+constraint é uma regra de requisito
+
+fase arquitetura (visao da arquitetura) fase a 
+desenhar a arquitetura de negocio (fase b)
+
+palheta referente a modelagem de arch de negocio (processos)
+
+quais atividades do trabalho do teu usuario vao ser atendidas pelo sistema que estamos desenvolvendo
+
+seta na palheta archimate (bussiness process)
+estamos modelando o sistema para atender uma area que atende clientes da empresa 
+
+desenhar a arquitetura de negocio (fase b)
+<****
+1quadro (seta)
+(recepcionar chamados de suporte)
+
+2quadro (seta)
+(registrar detalhes da ocorrencia)
+
+3quadro (seta)
+(diagnotico causa do problema)
+
+4quadro (seta)
+(documentar melhor solução de chamado)
+
+5(seta)
+(coletar avaliação de satisfação do cliente)
+
+temos que pensar como a cabaça da area de negocio
+estamos fazendo um sistemas para ajudar quais atividades 
+são as atividades acima
+
+conecto 1 com 2 flows to (flui para )
+2 com 3
+3 com 4 
+4 com 5 respectivamente 
+
+depois colocamos bussiness event
+
+quadro 6(bussiness event)
+(cliente necessitando de apoio tecnico)
+conecto com 1 (conector trigger)
+ele é trigger(desencandeia o fluxo 1,2,3,4...)
+
+fruto do trabalho(produto)
+quadro 7(product)
+(documentação do chamado)
+produzida quando, chamada quando?
+vinculamos com o registrar detalhes
+conecto com 2 e 3 e 4
+usado por (conector used by)
+
+quadro8 em parelo outro produto(product)
+(historico de problemas e soluções conhecidas)
+used by por documentar solução 
+e diagnotico 
+conect 3 e 4
+
+quadro9 (product)
+(historico das valiações dos clientes)
+conect 5 used by
+
+quadro10 (patente, bussiness function)
+(atendimento ao cliente dos produtos da empresa)
+
+quadro11 (function)
+(uso do sistema da empresa)
+
+conect quadro9 que é uma função composto de (conect composed with)
+com 1,2,3,4
+
+conect quadro11 
+uso do sistema 
+conect agregate com 5
+se o usuario quiser avaliar ele não avalia
+
+podemos arrastar pra dentro os quadros 1,2,3,4 para dentro da function quadro10
+e podemos colocar os produtos dentro  
+
+ligamo a atividade dos processo com os requisitos do software, precisamos saber se todos os requisitos tem utilidade
+
+ligamos o registrar avaliação com coletar avaliação
+
+(registrar avaliação do cliente) liga coletar avaliacao (realiza conector)
+
+documentação solução de chamado liga registra solução
+
+transferencia de chamado liga com diagnotico de causa
+(realiza conector)
+
+diagnotico de causa liga com registrar solução
+(realiza conector)
+
+registra detalhes da ocorrencia liga com registrar dados de um chamados
+(realiza conector)
+
+com isso vemos que todos os requisitos são atendidos, cobrem os processos da empresa 
+
+posso colocar quem faz as atividades
+definir que vai acessar cada tela, quem da conta de cada de processo
+
+bussiness actor (colocamos o cargo da pessoa)
+pegamos ele na palheta
+
+cargo
+1service desk - 2analista de sistemas - 3dba - 4analista de segurança da informação  - 5analista de redes e telecomunicação 
+
+parte do usuario 
+1cliente do produto
+
+eles podem desempenhar mais de um papel
+analista de sistema dois papeis
+
+associamos os papeis de ator com os as reponsabilidades deles. 
+
+1service desk assigned to recepcionar chamados de suporte
+1service desk assigned to registrar detalhes da ocorrencia
+2analista de sistemas desk assigned to recepcionar chamados de suporte
+1service desk assigned to recepcionar chamados de suporte
+1service desk assigned to recepcionar chamados de suporte
+1service desk assigned to recepcionar chamados de suporte
+1service desk assigned to recepcionar chamados de suporte
+1service desk assigned to recepcionar chamados de suporte
+1service desk assigned to recepcionar chamados de suporte
+
+
+****>
+--------------------------------------------------------
 No nível de maturidade 0 chamado de incompleto, o trabalho é realizado de forma aleatório, ou seja, neste nível o trabalho pode ou não ser concluído.
 
 
@@ -574,8 +726,37 @@ e as atividades de análise e limpeza de dados têm relação com os processos d
 
 ------------------------------------------------------
 A10
+a visao de arquitetura encerra quando temos uma lista inicial ou preliminar de requisitos, e quanto mais estiver completa melhor
+
+visao de arquitetura de negocio 
+desenho como serao as atividades da empresa depois que eu implantar meu sistema, como a empresa vai funcionar depois que eu implantar meu sistema, etapas do atendimento
+mostrando o processo de trabalho, etapas de atendimento
+como se trabalha o atendimento ao cliente, quais sao as etapas do atendimento, recpcao, registro, tratativa para identificar a causa do problema dele, por fim eu analizo o desempenho do meu atendimento (cliente me avaliar)
+visao de processo 
+
+proxima fase é a arquitetura de sistema (applicação mais dados) falando como o software vai ser 
+
+applicantion components (palheta)
+temos que pensar nos componentes do software
+podemos pensar na modelagem orientada as serviços 
+o componente x presta determinado serviço
+
+palheta application service
+interface de acesso do usuario ao sistema
+
+componente palheta 
+frontend em php para registrar 
+
+proximo passo é a arquitetura de tecnologia(quando definimos a parte de infra)
+
+temos que desenhar a infra (pensando do ponto de vista do usuario)
+
 ------------------------------------------------------
 A11
+desenho de soluções e oportunidades
+SCRUM
+
+1:02
 ------------------------------------------------------
 A12
 ------------------------------------------------------
