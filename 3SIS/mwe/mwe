@@ -544,6 +544,7 @@ parte2
 a injeção do controle sempre é da interface 
 @Autowired
 private ConvidadosService service;
+
 ------------------------------------------------------
 A 
 ------------------------------------------------------
