@@ -56,3 +56,62 @@ databind
 A04-230321
 
 
+a10- 
+criar novo projeto empty activity
+sdk19 min 
+
+requisitos 
+utilizar navigation componentes
+utilizar safe args 
+utilizar databinding
+
+step1 
+configurar o gradle
+
+build gradle project
+ext.nav_version ="2.3.5"
+
+build gradle app
+gradle
+
+dependencies
+
+implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+Para adicionar Safe Args ao seu projeto, inclua o seguinte classpath no seu arquivo build.gradle de nível superior: (nivel do projeto)
+
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        def nav_version = "2.3.5"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+    }
+}
+
+(dentro do android no app)
+apply plugin: "androidx.navigation.safeargs"
+
+
+Para configurar o app para usar a vinculação de dados, adicione o elemento dataBinding ao arquivo build.gradle no módulo do app, conforme mostrado no exemplo a seguir.
+
+android {
+        ...
+        dataBinding {
+            enabled = true
+        }
+    }
+    
+depois sync no gradle
+
+depois configurar as telas e navigation
+
+res botao direito android resource file
+primeira coisa é criar um resources de navegação
+android resource file
+file_name: nav_graph
+resource type: Navigation
+
+o pre requisito para usar o databind é colocar o xlm dentro do layout
