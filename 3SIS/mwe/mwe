@@ -538,6 +538,12 @@ como o metodo convidadoDto.toEntity() // temos a transformação de dto para ent
 a conversão do dto para um entidade
 
 1:02
+
+parte2 
+
+a injeção do controle sempre é da interface 
+@Autowired
+private ConvidadosService service;
 ------------------------------------------------------
 A 
 ------------------------------------------------------
