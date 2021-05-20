@@ -545,8 +545,47 @@ a injeção do controle sempre é da interface
 @Autowired
 private ConvidadosService service;
 
+<dependency>
+<groupId>javax.validation</groupId>
+<artifactId>validation-api</artifactId>
+</dependency>
+
 ------------------------------------------------------
-A 
+A09
+
+adicionar validação 
+dependencia spring-boot-stater-validation
+
+JPA COM HIBERNATE
+HEROKU USA POSTGREE 
+h2 eé usado para teste unitario
+
+a dependencia locator core, é para versionamento de pacotes
+
+esse como inputamos erros na tela
+temos que colocar em todos os campos do html
+<div class="form-group col-md-6 mt-3">
+	      		<label for="nome">SKU:</label>
+	     	 	<input type="text" class="form-control" th:errorclass="is-invalid" placeholder="SKU do produto" th:field="*{sku}">
+	     	 	<div th:errors="*{sku}" class="invalid-feedback"></div>
+</div>
+
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+é o cara que gera a chave
+
+na entidade podemos colocar o nome da tabela
+@Entity(name = "tb_produto")
+se não colocar ele assume o nome da classe, ProdutosEntity
+
+passamos a entidade e tipo do id, abaixo
+public interface ProdutoRepository extends JpaRepository<ProdutoEntity, Long>{
+
+
+dentro da camada serviceImpl fazemos a ingestão do repository
+E implementamos os metodos da serviceEntity(ProdutosService)
+
+@Autowired
+	private ProdutoRepository repository;
 ------------------------------------------------------
 A 
 ------------------------------------------------------
