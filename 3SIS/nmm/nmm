@@ -629,7 +629,35 @@ interface gig0/2
 transformar uma interface em interface tronco para todas as vlans
 configurando o modo trunk
 ------------------------------------------------------
+A12 
+ipv6 2 semestre
 
+no brasil estamos atrasados em relação ao ipv6
+em 1996 percebeu que iria acabar o ipv4
+para dar um sobrevida ao ipv4 foi feito o endereçamento privado
+end ip privado é não roteavel, são usados na redes locais
+
+cada rede no mundo precisa ter um end ip unico e exclusivo para aquela rede. so isso iria consumir todo end ip do mundo
+por isso pensou se em um remendo
+
+ao inves na nossas casas rede locais pequenas usarem end ipv4 publico, usa-se o end ip privado. 
+o end ip ipv4 privado que config na nossas redes locais, não existem na internet. Quando o end ip local da minha casa chega no roteador, ele precisa ser trocado por um end ip publico, que esta configurado no roteador. Os end ip privados que utilizamos nas nossas casas não passam do roteador. Roteador precisa pegar cada pacote de dados que chega, ele abre esse pacote, remove esse end ip privado que ele recebeu, guarda isso num banco de dados e troca por um end ip publico, encaminha para internet levando esse ip publico que é unico e exclusivo para minha rede. A resposta volta para esse end ip publico, o roteador consulta a base de dados e faz a troca e entrega internamente
+
+
+todos os equipamentos da nossa casa, usam end ip privados que podem ser iguais a qualquer outra rede, pq ele são privados e não existem na internet. Só que quando eu vou acessar a internet o roteador precisa fazer a magica de trocar o end ip privado pra publico, quando volta a resposta ele faz o processo inverso
+
+para fazer uso do end ip privado nas faixas classe a, b ou c não precisamos de autorização de ninguem. 
+
+podemos configurar o ip privado, porem quando chega no roteador temos que ter um end ip publico, que não qualquer end ip publico, tem que ser o end ip publico que pertença a rede do meu provedor
+
+o servico de tradução de end ip privado para publico, nasceu para possibilitar economia de end ip, mas ele tambem consegue ocultar a minha rede da internet (conceito de segurança) ele permite que equipamento da minha rede acessem a internet, mas a internet não consegue acessar a minha rede
+
+o que é nucleo
+wan é a internet, 
+o que é o nucleo da internet? é um provedor internet que entrega a internet na minha casa (que se liga, vivo, claro, nettelecom)
+os provedores se ligam a provedores no mundo inteiro
+
+o roteador da minha casa tem um interface que se liga a internet, (wan) que é externa a minha rede, e tem um interface que é interna a minha rede (gateway). o roteador liga a rede local a rede de longo alcance
 ------------------------------------------------------
 
 ------------------------------------------------------
