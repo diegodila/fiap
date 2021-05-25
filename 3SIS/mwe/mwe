@@ -587,7 +587,65 @@ E implementamos os metodos da serviceEntity(ProdutosService)
 @Autowired
 	private ProdutoRepository repository;
 ------------------------------------------------------
-A 
+A10 20 
+
+<div> <h1 class="display-6">Produtos</h1> </div>
+<form th:action="@{/novo-produto}">
+  <div>    
+    <button type="submit" class="btn btn-light">Novo Produto</button>    
+  </div>  
+</form>
+
+display aumenta o bootstrap
+a action do html bate na requestmap  th action é para redirecionamento
+quando não definimos uma request post, por default vai um get
+
+
+aqui na tabela ele ja faz um select para trazer todas os produtos, com o for each ele itera em cada linha 
+<table class="table" >
+<thead>
+<tr>
+<th scope="col">Nome</th>
+<th scope="col">Preço</th>
+<th class="text-center" scope="col">Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="produto : ${produtos}">
+<td th:text="${produto.nome}"></td>
+<td th:text="${produto.preco}"></td>
+<td class="text-center">
+<a th:href="@{/produto/{id}(id = ${produto.id})}" class="btn btn-primary">editar</a>
+<a th:href="@{/produto/excluir/{id}(id = ${produto.id})}" class="btn btn btn-danger">excluir</a>
+</td>
+</tr>
+</tbody>
+</table>
+
+a injeção nada mais é que uma instancia, @Autowired por exemplo, e spring resolve isso pra gente, ele deixa o metodo instanciado pronto pra ser usado
+
+@Autowired
+	private ProdutoRepository repository;
+
+  depois podemos usar eles  repository.findAll();, repository.save(entity);,repository.findById(id).get();	
+
+não podemos esquecer do @Service, na camada de serviceImpl. porque o spring faz a injeção de dependencias, instaciando a classe. O spring deixa a classe pronta para ser usada. 
+Temos que observar a necessidade do map, transformando a entidade em dto
+o tipo de map usado abaixo
+
+	private List<Produto> fromTo(List<ProdutoEntity> lista){
+		List<Produto> listaDto = new ArrayList<>();
+		for (ProdutoEntity produtoEntity : lista) {
+		Produto dto = new Produto();
+		dto.setId(produtoEntity.getId());
+		dto.setNome(produtoEntity.getNome());
+		dto.setSku(produtoEntity.getSku());
+		dto.setDescricao(produtoEntity.getDescricao());
+		dto.setPreco(produtoEntity.getPreco());
+		listaDto.add(dto);
+		     }
+		return listaDto;
+	}
 ------------------------------------------------------
 A 
 ------------------------------------------------------
