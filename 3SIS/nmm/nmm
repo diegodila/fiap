@@ -658,6 +658,8 @@ o que é o nucleo da internet? é um provedor internet que entrega a internet na
 os provedores se ligam a provedores no mundo inteiro
 
 o roteador da minha casa tem um interface que se liga a internet, (wan) que é externa a minha rede, e tem um interface que é interna a minha rede (gateway). o roteador liga a rede local a rede de longo alcance
+
+quando um servidor esta em um rede privada eu protejo ele da internet.
 ------------------------------------------------------
 
 ------------------------------------------------------
