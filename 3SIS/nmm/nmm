@@ -660,6 +660,79 @@ os provedores se ligam a provedores no mundo inteiro
 o roteador da minha casa tem um interface que se liga a internet, (wan) que é externa a minha rede, e tem um interface que é interna a minha rede (gateway). o roteador liga a rede local a rede de longo alcance
 
 quando um servidor esta em um rede privada eu protejo ele da internet.
+
+NAT network address translation 
+é troca do ip privado para ip publico, voltando com a resposta trocando de ip publico para privado 
+(service de tradução de endereçamento)
+
+roteador não encaminha end ip privado (para economizar end ip)
+sempre troca o ip privado para publico
+
+cidr(alternativa)
+dhcp(alternativa)
+nat(alternativa)
+todas para novas redes
+reservar faixas de end ip (para ip privados)
+
+a distribuição de ip segue uma estrutura mundial
+o provedor(x) para ele configurar a rede tem que fazer uso de end ip publico (o provedor negociou com comite gestor de internet do brasil um bloco de end ip para o provedor)
+o comite gestor recebe esse bloco de um orgao que controla a alocação de end ip da america latina (iana) a iana vai buscar nos estados unidos de uma instuição chamada ican (estrutura mundial)
+
+iana(ano passado alocou o ultimo bloco classe c disponivel de end ip da america latina)
+
+na nossa casa temos 2 ip publicos validos, pq o provedor fornece uma mask que fornece apenas 2 ip publicos 255.255.255.252
+
+internamente na rede local da casa, ao inves de consumir ip publico, la do provedor(ele precisa de ip publico) essa ligação com provedor ate minha casa, ele configura um serviço chamado nat, e libera uma faixa de ip que não existe na internet (ip privado). Então ele não gasta ip publico com a gente
+
+somente na hora que vamos acessar a internet o roteador pega
+pkg de dados abre o pacote e remove o ip privado, coloca o ip publico e anota essa transação em um banco de dados, manda o pkg pra internet com o end ip publico da interface roteador a resposta volta endereçados para esse ip publico, o roteador recebe e olha no banco de dados e encaminha para o ip correto, fazendo o mapeamento correto. o Roteadores pegam os pacotes de dados e fazem esse mapeamento de ip privado p publico. os provedores conseguem entregar rede locais para seus assinantes gastando dois end ip publicos
+
+
+NAT é remendo de end ip 
+onde eu perco na NAT? desempenho
+pela cronologia de mapeamento e guardar em banco de dados envio e resposta, e traduzir os ip privado para publico
+toda comunicação tem que ter uma conversão
+
+em rede pequenas quase que imperceptivel 
+em rede grandes começamos a ter problemas 
+
+a internet so não é mais rapida por problemas como esse
+o ipv6 irá corrigir, enquanto não vem o ipv6 o NAT é a solução 
+
+os sistemas que desenvolvemos e são hospedados em servidores ou em cloud, sofre com problemas de config de NAT. Quando precisamos acessar o sistema o NAT pode o impedimento. Por outro lado posso fazer o uso de NAT, para proteger de ataques externos. 
+
+Dominar o service de NAT trazer beneficios em termos de segurança e problemas de desempenho, e barra o acesso ao sistema 
+
+pacotes que chegam no roteador trazendo end ip privado, não saem do roteador, para isso precisamos configurar um serviço NAT, algo que traduza end ip privado para publico 
+
+existem varios formas de configurar serviço NAT
+
+NAT ESTATICO, static por questao de segurança no passado
+NAT dinamico 
+NAT PAT mais usado 
+
+
+NAT estatico eu faço o mapeamento 1 p 1, privado para publico, então se eu tiver um 3 equip em ip privados, vou precisar de 3 ip publicos. Sendo 1 privado p 1 publico
+
+para config nat static, preciso dizer qual interface interna e externa. interface inside, interface outside 
+
+interface gig0/1
+ip nat inside 
+
+interface gig0/0
+ip nat outside
+
+ip nat inside source static 192.168.1.2 200.200.200.2 (traduz)
+
+ip nat inside source static 192.168.1.2 200.200.200.2 (1 p 1)
+ip nat inside source static 192.168.1.3 200.200.200.3 (privado p publico)
+ip nat inside source static 192.168.1.4 200.200.200.4 (1 p 1)
+
+o bom do nat static é que internet não consegue acessar meu ip privado 192.168.1.4. então não consigo pingar nesse ip, pois é um ip privado 
+
+nat dinamico eu crio um pool de end ip, onde fica uma alocação dinamica
+
+
 ------------------------------------------------------
 
 ------------------------------------------------------
