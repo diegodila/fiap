@@ -485,14 +485,14 @@ criamos todas vlans, mas nenhuma interface ligada a ela, depois precisamos distr
 >switchport access vlan 2 // movendo a interface 01 para uma vlan 2
 >inteface fa0/2
 >switchport mode access
->switchport acess vlan 2
+>switchport access vlan 2
 >configure terminal 
 >inteface range fa0/8-9 // migramos as 2 interfaces para vlan3
 >switchport mode acess 
->switchport acess vlan 3
+>switchport access vlan 3
 >inteface range fa0/17-18
 >switchport mode acess
->switchport acess vlan 4
+>switchport access vlan 4
 >exit
 >
 >
@@ -519,7 +519,7 @@ rede: 192.168.2.2-3
 gateway:192.168.2.1
 
 ------------------------------------------------------
-A10
+A11
 
 agrupa
 19:00 quebramos em 4 redes separadas 
@@ -732,9 +732,44 @@ o bom do nat static é que internet não consegue acessar meu ip privado 192.168
 
 nat dinamico eu crio um pool de end ip, onde fica uma alocação dinamica
 
+enable 
+configure terminal 
+interface gig0/1
+ip nat inside 
 
+interface gig0/0
+ip nat outside
+acess-list 1 permit host 10.0.0.1 (criamos uma list onde falamos quais equipamentos vai participar do NAT) (POOL DE END IP) (NOME DA LISTA:1)
+acess-list 1 permit host 10.0.0.2
+acess-list 1 permit host 10.0.0.3 (QUAIS EQUIP PODERAO FAZER USO DO NAT)
+
+ip nat pool LAN2 202.202.202.3 202.202.202.4 netmask 255.255.255.255.0 (criamos um pool de end IP PUBLICO DO NAT)
+ip nat inside source list 1 pool LAN2 (ASSOCIAMOS A LISTA AO POOL)
+
+NAT DO TIPO PAT (PORT ADDRESS TRANSLATE)
+
+enable 
+configure terminal 
+interface gig0/1
+ip nat inside 
+
+inteface gig0/0
+ip nat outside
+
+access-list 1 host 10.0.0.2
+
+acess-list 1 permit host 10.0.0.2
+
+ip nat inside source list 1 interface gig0/0 overload
+ip nat inside source static tcp 10.0.0.2 80 100.1.1.1 80
 ------------------------------------------------------
+A13 260521
+nat é processo de tradução de end ip
 
+cenario comum traduzir ip privado p publico
+mask coringa
+
+ip nat inside source list 1 interface gig0/1 overload (essa lista participa do nat inside, fazendo um overload)
 ------------------------------------------------------
 
 ------------------------------------------------------
