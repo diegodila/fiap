@@ -647,7 +647,14 @@ o tipo de map usado abaixo
 		return listaDto;
 	}
 ------------------------------------------------------
-A 
+APS erros 
+
+esquece a notation @GeneratedValue
+na camada service, na interface service colocar a entidade ao inves do dto(correto é colocar o dto na camada service e fazer um fromTo da entidade para o dto)
+
+na interface service o save (C create) sempre temos que passar um dto como parametro
+na interface service o edit (U update) sempre temos que passar um id como parametro
+
 ------------------------------------------------------
 A 
 ------------------------------------------------------
