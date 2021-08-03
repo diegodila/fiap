@@ -801,27 +801,76 @@ Depois de pontuados os esforços, devemos fazer o PLANO DE RELEASE
 
 Para fazer isso, defina com a equipe e o PO, quanto tempo dura uma Sprint (todas Sprints terão que manter o mesmo limite de tempo).
 
-
 ------------------------------------------------------
 A13
 ------------------------------------------------------
-A14
+A2-01
+
+estimar o tempo de projeto
+quanto tempo voce vai levar para fazer esse projeto?
+
+muitas empresas não confiam no poker planning
+elas querem uma estimativa cientifica
+
+estimar o projeto
+posso usar predição ou previsao ou projecao
+
+predicao: adivinhar o futuro por sentimento
+
+projeção: definir algo com base em historico passado (por analogia)
+projeção é um atalho perigoso 
+
+previsao: definir algo com base em probabilidades
+pega o historico de projetos e aplica uma matematica (prob, estatistica)
+modelo de previsao de projetos
+
+Estimativa Direta: atribui-se diretamente um valor estimado para
+fazer algo. Por exemplo: atribui-se um número de horas de
+trabalho para criar uma tabela no banco de dados.
+(atribui diretamente um valor para aquele item)
+
+Estimativa Paramétrica: utiliza-se um fator de referência, um
+item de avaliação de grau de complexidade, para determinar o
+esforço para fazer algo. Por exemplo: define-se o número de
+campos de dados que uma tabela de banco de dados vai ter e com
+base nessa informação, define-se o tempo para criar a tabela no
+banco de dados.
+(dou a especificação do que eu quero fazer e o modelo matematico da os prontos)
+
+function point
+Vamos estudar como a APF (Análise de Pontos de Função) ou
+FPA (Function Point Analysis) 1400 empresas que aplicam function point
+
+Decomposição Funcional
+decompor em componentes (backlog de produto(copy paste))
+ou pegar a lista de requisitos
+
+RF – Requisitos Funcionais(São computados em pontos de função (itens de desenvolvimento))
+
+RNF – Requisitos Não Funcionais (equipe(senior ou junior))
+
 ------------------------------------------------------
-A15
+A2-02
 ------------------------------------------------------
-A16
+A2-03
 ------------------------------------------------------
-A17
+A2-04
 ------------------------------------------------------
-A18
+A2-05
 ------------------------------------------------------
-A19
+A2-06
 ------------------------------------------------------
+A2-07
 ------------------------------------------------------
+A2-08
 ------------------------------------------------------
+A2-09
 ------------------------------------------------------
+A2-10
 ------------------------------------------------------
+A2-11
 ------------------------------------------------------
+A2-12
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
