@@ -1,6 +1,6 @@
 comandos > route == gateway, ifconfig == ipv4 
 
-A01-070421
+1A01-070421
 
 toda a porta do roteador marca o inicio e o fim da rede é o gateway
 diferença entre roteador e modem 
@@ -15,7 +15,7 @@ entao todos os eq da rede estão no mesmo dominio de broadcast
 pode causar lentidão no sistema
 
 ------------------------------------------------------
-A02-070421
+1A02-070421
 o que é um gateway -> o endereço, a interface que conecta a rede local, com outra rede 
 gateway -> conecta a rede da casa com a internet
 podemos ter mais de uma rede configurada
@@ -109,7 +109,7 @@ cada rede tem seu proprio dominio de broadcast
 4 redes, 4 proprio end de broadcast
 
 ------------------------------------------------------
-A03-120421 camada osi x tcp/ip
+1A03-120421 camada osi x tcp/ip
 osi 
 app
 apresentacao 
@@ -234,7 +234,7 @@ a maioria do switchs vem com um protocolo
 eles desabilitam a redundancia
 
 ------------------------------------------------------
-A04-130421
+1A04-130421
 
 endereçamento ip precisamos em cada disppositivo final
 ou ipv4 ou ipv6 ou a combinação dos dois
@@ -308,7 +308,7 @@ gateway é a interface do roteador que meu equipamento esta utilizando para sair
 o endereço ip do meu equip e end gateway precisam estar na mesma rede. Gateway e end ip host precisam estar na mesma rede  
 
 ------------------------------------------------------
-A05-140421
+1A05-140421
 
 curso roteamento, switching e redes sem fio (cisco)
 
@@ -401,7 +401,7 @@ rede 202.202.202.0
 mask 255.255.255.0
 
 ------------------------------------------------------
-A08-280421 
+1A08-280421 
 
 quando clicamos no modo simulation, show all none(enche de protocolos > add filter> dhcp ) entramos em modo de simulação simulando o protocolo dhcp 
 
@@ -431,7 +431,7 @@ router> enable configure terminal
 router>dhcp pool rede
 
 ------------------------------------------------------
-A09-050521 
+1A09-050521 
 o celular está programado para fazer uma requisição dhcp
 acess point não está configurado como roteador 
 acess point fica a nivel fisico, ele propoga mais broadcast que o suite 
@@ -519,7 +519,7 @@ rede: 192.168.2.2-3
 gateway:192.168.2.1
 
 ------------------------------------------------------
-A11
+1A11
 
 agrupa
 19:00 quebramos em 4 redes separadas 
@@ -629,7 +629,7 @@ interface gig0/2
 transformar uma interface em interface tronco para todas as vlans
 configurando o modo trunk
 ------------------------------------------------------
-A12 
+1A12 
 ipv6 2 semestre
 
 no brasil estamos atrasados em relação ao ipv6
@@ -763,7 +763,7 @@ acess-list 1 permit host 10.0.0.2
 ip nat inside source list 1 interface gig0/0 overload
 ip nat inside source static tcp 10.0.0.2 80 100.1.1.1 80
 ------------------------------------------------------
-A13 260521
+1A13 260521
 nat é processo de tradução de end ip
 
 cenario comum traduzir ip privado p publico
@@ -771,6 +771,28 @@ mask coringa
 
 ip nat inside source list 1 interface gig0/1 overload (essa lista participa do nat inside, fazendo um overload)
 ------------------------------------------------------
+2A14 040821
+
+isp (internet solution provider) a internet é um conjunto de roteadores que se ligam uns aos outros o nucleo da internet
+nas pontas um monte de internet local privada ligada 
+
+o endereço das redes da internet (o roteador escolhe um caminho ate ligar um ponto de destino) 
+um dos papeis dos roteadores é escolher um caminho na internet (roteamento)
+
+um conjunto de roteadores na ponta 1 rede local e na outra 2 rede local 2
+
+roteamento estatico e dinamico
+
+config> static> rede 200.200.209.0
+mask : 255.255.255.0
+next hop: 200.200.210.1 (proximo end ip(proximo roteador))
+
+vamos configurando cada roteador (um roteador encaminha para o proximo, temos que fazer isso na mão estaticamente)
+
+next hop ajuda dizer qual é o proximo roteador que ele tera que alcançar, o end ip daquele roteador aquela interface
+
+isp(roteadores)
+isp1 > isp3 > isp6 > router local 2 > pc2
 
 ------------------------------------------------------
 
