@@ -115,3 +115,10 @@ file_name: nav_graph
 resource type: Navigation
 
 o pre requisito para usar o databind é colocar o xlm dentro do layout
+
+------------------------------------------
+
+binding = ActivityMain
+binding serve para que na nossa activity a gente consiga puxar os ids da nossa activity
+
+bindin.
