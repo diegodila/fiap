@@ -801,7 +801,7 @@ where employee_id in (100,107,170);
 */
 
 ----------------------------------------------------
-a2-01-0308
+A2-14-0308
 
 registro plsql 
 3 variaveis, podemos criar uma estrutura para acomodar o programa. 
@@ -861,3 +861,6 @@ V_MANAGER_ID || ' ' ||
 V_DEPARTMENT_ID );
 END;
 /
+
+----------------------------------------------------
+A2-15 1008
