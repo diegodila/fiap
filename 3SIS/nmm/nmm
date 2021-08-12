@@ -795,8 +795,29 @@ isp(roteadores)
 isp1 > isp3 > isp6 > router local 2 > pc2
 
 ------------------------------------------------------
+2A15 110821
 
+config > static >
+net: 200.200.209.0
+mask:255.255.255.0
+next hop: 200.200.210.1
+
+static precisamos configurar um roteador por um, mostrando a rede final e next hop é proximo roteador dentro do caminho que deseja percorrer ate chegar a rede final
+
+na configuração é static, network é rede de destino que deseja chegar, o next hop é proximo roteador que ele entregara o pacote ate chegar a rota
+
+o protocolo de tcp e udp ele tem diferenças de envio, quando um roteador esta congestionado ele pode usar o tcp, que ele fica enviando novamente, o udp envia uma vez só
+
+habilitar o protocolo de roteamento 
+(heap escolhe o caminho mais curto, nem sempre o mais curto é o melhor)
+podemos utilizar como metrica o estado do link (mais rapido ou mais estavel ou menos falhas)
+
+escolho o protocolo de acordo com a minha rede
+o protocolo dinamico é rip (é unico com interface grafica)
+
+o protocolo rip temos que colocar as redes que estao conectadas a ele 
 ------------------------------------------------------
+2A16 110821
 
 ------------------------------------------------------
 
