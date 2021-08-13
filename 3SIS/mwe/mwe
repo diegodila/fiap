@@ -179,7 +179,7 @@ rel="stylesheet" />
 
 a primeira action request mapping  @GetMapping só serve para abrir o html, depois pelo botão atraves do post passamos os dados para uma outra view 
 então no form html inicial tem uma action que tem o path e o method dela
-esse 	@PostMapping("/salve") escuta esse html 
+esse 	@PostMapping("/salve") escuta esse html
 
 e depois o metodo save salva no Jpa 	repository.save(servicemodel);
 
