@@ -117,30 +117,37 @@ resource type: Navigation
 o pre requisito para usar o databind é colocar o xlm dentro do layout
 
 ------------------------------------------
-A2-14 030820
+A2-14 030821
 binding = ActivityMain
 binding serve para que na nossa activity a gente consiga puxar os ids da nossa activity
 
 bindings 
 
 ------------------------------------------
-A2-15 100820
+A2-15 100821
+sql é o pai do sqlite
+no android é banco de dados que fica dentro do celular
+
+Room facilita fazer a manipulação de banco de dados no android
+
+banco de dados relacional cria relações (err) kk 
+tabela de alunos 
 
 ------------------------------------------
-A2-16 100820
+A2-16 170821
 ------------------------------------------
-A2-16 100820
+A2-16 100821
 ------------------------------------------
-A2-16 100820
+A2-16 100821
 ------------------------------------------
-A2-16 100820
+A2-16 100821
 ------------------------------------------
-A2-16 100820
+A2-16 100821
 ------------------------------------------
-A2-16 100820
+A2-16 100821
 ------------------------------------------
-A2-16 100820
+A2-16 100821
 ------------------------------------------
-A2-16 100820
+A2-16 100821
 ------------------------------------------
-A2-16 100820
+A2-16 100821
