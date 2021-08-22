@@ -131,7 +131,11 @@ no android é banco de dados que fica dentro do celular
 Room facilita fazer a manipulação de banco de dados no android
 
 banco de dados relacional cria relações (err) kk 
-tabela de alunos 
+tabela de alunos
+
+kapt kotlin annotation processing tool 
+ferramenta de processamento de anotações
+
 
 ------------------------------------------
 A2-16 170821
