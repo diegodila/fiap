@@ -859,7 +859,78 @@ praticas d novel 3 do cmmi
 integridade referencial, integração ou de rastreabilidade
 
 ------------------------------------------------------
-2A17 230821
+2A17 230821 Testes 
+
+quantos testes vamos fazer? 
+eu me sinto mais seguro quando foi testado?
+
+controlar aeronave, lançar foguete, guardar os dados do cliente em segurança, nao deixar roubar os dados 
+
+selo de qualidade 
+
+precisamos cuidar de algumas coisas dentro de governança 
+administrar um projeto
+avaliar os resultados do produto que a gente fez, e avaliar a qualidade e satisfação do cliente 
+
+entender com funciona a sequencia de uma liberação de um software 
+
+versao alpha(sprint), 
+
+versao beta(liberado da sprint(concluido, liberar para o usuario, dev considerou estavel)) beta é uma versao confiavel? beta é uma versão instável. mas foi testado pelo teste alpha, beta tem intenção para que a criatividade do usuario estresse ao limite
+-beta de sistema de informação é parrudo, trata a gestao completa 
+-beta teste faço com cliente ponta firme
+
+{release candidate, terminei a sprint, vamo entregar definitivamente, vamos definir um candidato a release,
+criar um pacote de release
+}
+
+release manufacturing 
+
+GA general availability 
+ambiente de teste 
+ambiente servidor 
+
+pelo menos 3 ambientes de testes 
+3 dev, qa, prod
+
+elaborar estrategias de testes sem que a gente gaste demais 
+
+tecnica nivel e tipos de teste
+
+defeito no cod que é via de regra de programação, erro de uso, mas os dev devem estar preparados para erro de uso
+
+temos que tentar evitar os erros do usuário 
+mas tambem cometamos o nosso erro de programação 
+temos que achar falhas
+
+porque fazemos os testes?
+testes é realizar atividades para confirmar se um produto funciona (mas o objetivo é fazer crashar)
+
+programa de computador nos da orgulho porem da um lado psicologico com o carinho, e quando fazemos o teste olhamos ele com carinho 
+temos que parar de tentar fazer o programa funcionar e fazer ele quebrar, temos que mudar a conduta
+temos que botar pra quebrar
+levar o produto ao limite
+objetivo de um teste é fazer crashar 
+hacker é pra tentar invadir, empresas contratam pra tentar invadir 
+
+precisamos explicar o forma que o produto funciona
+a maioria nao gosta de fazer testes
+
+teste é caro? muitas empresas dizem, por conta da modelagem, da programação, o cliente entende que estamos agregando valor ao produto, programando, so que quando falamos que terminamos e so falta testar, a pressao vem com tudo 
+
+plano de teste, roteiro de Teste
+
+cuidado com as palavras terminei so falta testar
+
+o que é equipe de qa
+voce deixaria uma pessoa que nao fez o software testar ele?
+
+criar uma area de quality assurence
+
+ter ou nao ter a area de QA
+
+niveis de testes (dentro do alpha e beta)
+
 ------------------------------------------------------
 2A18
 ------------------------------------------------------
