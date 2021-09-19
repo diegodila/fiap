@@ -117,14 +117,14 @@ resource type: Navigation
 o pre requisito para usar o databind é colocar o xlm dentro do layout
 
 ------------------------------------------
-A2-14 030821
+2A-14 030821
 binding = ActivityMain
 binding serve para que na nossa activity a gente consiga puxar os ids da nossa activity
 
 bindings 
 
 ------------------------------------------
-A2-15 100821
+2A-15 100821
 sql é o pai do sqlite
 no android é banco de dados que fica dentro do celular
 
@@ -138,20 +138,39 @@ ferramenta de processamento de anotações
 
 
 ------------------------------------------
-A2-16 170821
+2A16 170821
 ------------------------------------------
-A2-16 100821
+2A17 240821
+
+colocamos um constraint dentro do constraint
+o manisfest é um arq de config 
+
+o java é a parte logica 
+o res é de resources (static) frontend
+
+a pasta layout é o xml 
+
+a pasta drawable (desenhavel) png, jpeg, podemos criar xml 
+
+
 ------------------------------------------
-A2-16 100821
+2A-18 310821
+aula sobre animações
 ------------------------------------------
-A2-16 100821
+2A-19 070921
+feriado
 ------------------------------------------
-A2-16 100821
+2A-20 140921 aula sobre implementation of maps
+
+incorporar um maps dentro do app
+chave AIzaSyDuWdfsUFxxrdarG4EN_12BPKoUhLDQfyk
 ------------------------------------------
-A2-16 100821
+2A-16 100821
 ------------------------------------------
-A2-16 100821
+2A-16 100821
 ------------------------------------------
-A2-16 100821
+2A-16 100821
 ------------------------------------------
-A2-16 100821
+2A-16 100821
+------------------------------------------
+2A-16 100821
